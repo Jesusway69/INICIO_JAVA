@@ -1,0 +1,14 @@
+[
+    {
+        "nombre": "Luis",
+        "edad": 23,
+        "estatura": 1.72,
+        "cursos_l": ["Física", "Matemática"]
+    },
+    {
+        "nombre": "Miguel",
+        "edad": 21,
+        "estatura": 1.73,
+        "cursos_l": ["Matemática"]
+    }
+]

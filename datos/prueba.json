@@ -1,0 +1,25 @@
+[{
+        "idCancion": "C1",
+        "titulo": "Tubular Bells",
+        "idArtista": "A1"
+    },
+    {
+        "idCancion": "C2",
+        "titulo": "Yellow Submarine",
+        "idArtista": "A2"
+    },
+    {
+        "idCancion": "C3",
+        "titulo": "Get Back",
+        "idArtista": "A2"
+    },
+    {
+        "idCancion": "C4",
+        "titulo": "Yesterday",
+        "idArtista": "A2"
+    },
+    {
+        "idCancion": "C5",
+        "titulo": "Moonlight Shadow",
+        "idArtista": "A1"
+    }]

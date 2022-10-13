@@ -1,0 +1,1 @@
+{"arrayColores":[{"nombrecolor":"Rojo","valorHexadecimal":"#F00"},{"nombrecolor":"Verde","valorHexadecimal":"#0F0"},{"nombrecolor":"Azul","valorHexadecimal":"#00F"},{"nombrecolor":"Cyan","valorHexadecimal":"#0FF"},{"nombrecolor":"Magenta","valorHexadecimal":"#F0F"},{"nombrecolor":"Amarillo","valorHexadecimal":"#FF0"},{"nombrecolor":"Negro","valorHexadecimal":"#000"}]}

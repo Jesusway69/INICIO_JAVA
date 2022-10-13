@@ -1,0 +1,15 @@
+    public class EventoRadioButton implements ActionListener {
+
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            if (e.getSource() == rdo0) {
+                cambiarTamaño(800, 600);
+            }
+            if (e.getSource() == rdo1) {
+                cambiarTamaño(1024, 800);
+            }
+            if (e.getSource() == rdo2) {
+                cambiarTamaño(400, 400);
+            }
+        }
+    }

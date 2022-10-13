@@ -1,0 +1,20 @@
+[   
+    {
+        "codigo": 1,
+        "nombre": "Luis",
+        "paterno": "Roncal",
+        "cursos_l": [{"idCurso": "C1", "nombre": "Matemática"}, {"idCurso": "C2", "nombre": "Física"}]
+    },
+    {
+        "codigo": 2,
+        "nombre": "Miguel",
+        "paterno": "Ledezma",
+        "cursos_l": [{"idCurso": "C2", "nombre": "Física"}]
+    }, 
+    {
+        "codigo": 3,
+        "nombre": "Carlos",
+        "paterno": "Alva",
+        "cursos_l": [{"idCurso": "C2", "nombre": "Física"}, {"idCurso": "C3", "nombre": "Química"}, {"idCurso": "C1", "nombre": "Matemática"}]
+    }
+]

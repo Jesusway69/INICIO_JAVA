@@ -1,0 +1,21 @@
+Hacer un programa que pida la cantidad de registros que desea grabar
+en un archivo csv. Entonces pedirá por teclado el idAlumno, nombre y edad
+para luego grabarlo en el archivo.
+Luego hacer otra funcion para leer y mostrarlo como una tabla
+
+idAlumno;nombre;edad
+1;Luis;23
+2;Miguel;25
+3,María;22
+
+[['numero', 'palabra'],
+ ['1', 'Linea 1'], 
+ ['2', 'Linea 2'], 
+ ['3', 'Linea 3'], 
+ ['4', 'Linea 4'], 
+ ['5', 'Linea 5'],
+ ['6', 'Linea 6'], 
+ ['7', 'Linea 7'], 
+ ['8', 'Linea 8'],
+ ['9', 'Linea 9'],
+ ['10', 'Linea 10']]    11x2

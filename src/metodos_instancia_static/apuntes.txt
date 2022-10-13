@@ -1,0 +1,24 @@
+===========================================
+ALUMOS
+
+IDALUMNO    NOMBRE      EDAD       ESTATURA
+A1          Luis        16         1.72
+A2          Miguel      24         1.73
+A3          Carlos      17         1.70
+A4          Carmen      21         1.65
+A5          Jesus       24        
+===========================================
+COORDENADAS CARTESIANA A POLAR
+
+X   Y   R    A
+2   3   
+7   8   
+===========================================
+CLASE: - Variables de instancias (Atributos de la clase)
+       - Constructores (Inicializar los valores de las variables de instancia)
+       - Métodos set y get por cada variable de instancia (Inicializar los valores de las variables de instancia)
+
+       - Mostrar los valores de las variables de instancia (toString)
+       - Otros métodos para procesar las variables de instancia
+
+
