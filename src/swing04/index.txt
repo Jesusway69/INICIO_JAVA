@@ -1,0 +1,1 @@
+Ventana1.java: Gestione la acción sobre los checkbox
