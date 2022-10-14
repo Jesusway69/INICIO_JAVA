@@ -1,4 +1,4 @@
-package ejercicios1;
+package ejercicio3_7;
 
 public class Obrero {
 
