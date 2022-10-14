@@ -6,3 +6,5 @@ Matirz4.java: Modificar la matriz de tal forma que el número par
 
 Matriz5.java: Crear una matriz dinámica.
 
+Matriz6.java: Guardar objetos(Triangulo) en una matriz.
+
