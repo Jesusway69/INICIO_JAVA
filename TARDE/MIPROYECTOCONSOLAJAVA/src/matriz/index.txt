@@ -7,4 +7,4 @@ Matirz4.java: Modificar la matriz de tal forma que el número par
 Matriz5.java: Crear una matriz dinámica.
 
 Matriz6.java: Guardar objetos(Triangulo) en una matriz.
-
+Matriz7.java: Crear una matriz con todos los números primos entre 1 y 1000.
