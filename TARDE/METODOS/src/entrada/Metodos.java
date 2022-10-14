@@ -20,4 +20,28 @@ public class Metodos {
         return Integer.parseInt(n); //"2" --> 2
     }
 
+    public static int[][] copiaMatriz(int[][] enteros) {
+        int nf = enteros.length;
+        int nc = enteros[0].length;
+        int[][] copia = new int[nf][nc];
+        for (int i = 0; i < nf; i++) {
+            for (int j = 0; j < nc; j++) {
+                copia[i][j] = enteros[i][j];
+            }
+        }
+        return copia;
+    }
+    
+     public static void mostrar(int[][] enteros) {
+        int nf = enteros.length;
+        int nc = enteros[0].length;
+        System.out.println("MOSTRAR MATRIZ");
+        for (int i = 0; i < nf; i++) {
+            for (int j = 0; j < nc; j++) {
+                System.out.printf("%4d", enteros[i][j]);
+            }
+            System.out.println();
+        }
+    }
+
 }
