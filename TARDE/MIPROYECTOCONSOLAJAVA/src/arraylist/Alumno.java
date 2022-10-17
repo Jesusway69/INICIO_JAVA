@@ -58,6 +58,15 @@ public class Alumno {
         return "Alumno{" + "idAlumno=" + idAlumno + ", nombre=" + nombre + ", edad=" + edad + ", estatura=" + estatura + '}';
     }
 
+    //CABECERA
+    public static void cabecera() {
+        System.out.printf("%8s  %-6s  %4s  %8s\n", "IDALUMNO", "NOMBRE", "EDAD", "ESTATURA");
+        System.out.printf("%8s  %-6s  %4s  %8s\n", "--------", "------", "----", "--------");
+    }
+
+    public void cuerpo() {
+        System.out.printf("%8s  %-6s  %4d  %8.2f\n", idAlumno,nombre,edad,estatura);
+    }
 }
 
 
