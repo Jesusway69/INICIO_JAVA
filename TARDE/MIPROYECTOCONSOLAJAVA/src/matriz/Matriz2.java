@@ -1,5 +1,7 @@
 package matriz;
 
+import static entrada.Metodos.mostrar;
+
 public class Matriz2 {
 
     public static void main(String[] args) {
@@ -12,6 +14,7 @@ public class Matriz2 {
         return enteros;
     }
 
+    /*
     public static void mostrar(int[][] enteros) {
         int nf = enteros.length;
         int nc = enteros[0].length;
@@ -23,5 +26,6 @@ public class Matriz2 {
             System.out.println();
         }
     }
+*/
 
 }

@@ -1,7 +1,7 @@
 package matriz;
 
+import static entrada.Metodos.mostrar;
 import static entrada.Metodos.validarEntradaEntero;
-import static matriz.Matriz2.mostrar;
 
 public class Main5 {
     public static void main(String[] args) {
