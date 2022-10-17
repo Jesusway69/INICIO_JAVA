@@ -1,6 +1,5 @@
 package arraylist;
 
-import static entrada.Metodos.validarEntradaEntero;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -21,13 +20,16 @@ public class Menu {
         do {
 
             cls();
+            System.out.println("MENU");
+            System.out.println("----");
             System.out.println("1. Mostrar");
             System.out.println("2. Buscar por su id");
             System.out.println("3. Eliminar por su id");
             System.out.println("4. Actualizar");
+            System.out.println("5. Mostrar todos los alumnos menores de edad");
             System.out.println("0. Salir");
 
-            int opcion = validarEntradaEntero("Ingrese opción? ");
+            int opcion = Metodos.validarEntradaEntero("Ingrese opción? ");
 
             switch (opcion) {
                 case 1:
@@ -76,7 +78,7 @@ public class Menu {
             }
         }
         if (!bandera) {
-            System.out.println("\nNo existe alumno con dicho id");
+            System.out.println("\nAlumno no existe con ese id");
         }
         pause();
     }
@@ -84,27 +86,51 @@ public class Menu {
     public static void eliminar() {
         cls();
         System.out.println("3. ELIMINAR");
+        System.out.println("-----------");
         Scanner sc = new Scanner(System.in);
         boolean bandera = false;
         System.out.print("Ingrese Id Alumno? ");
         String id = sc.next();
-        for(int i=0; i<alumnos_al.size(); i++) {
+        for (int i = 0; i < alumnos_al.size(); i++) {
             Alumno a = alumnos_al.get(i);
-            if(a.getIdAlumno().equalsIgnoreCase(id)) {
-               alumnos_al.remove(i);
-               System.out.println("\nAlumno eliminado");
-               bandera = true;
+            if (a.getIdAlumno().equalsIgnoreCase(id)) {
+                alumnos_al.remove(i);
+                System.out.println("\nAlumno eliminado");
+                bandera = true;
             }
         }
-        if(!bandera) {
-           System.out.println("\nAlumno no existe con ese id");
+        if (!bandera) {
+            System.out.println("\nAlumno no existe con ese id");
         }
         pause();
     }
 
     public static void actualizar() {
         cls();
-        System.out.println("1. ACTUALIZAR");
+        System.out.println("4. ACTUALIZAR");
+        System.out.println("-------------");
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Ingrese Id Alumno? ");
+        String id = sc.next();
+        for (int i = 0; i < alumnos_al.size(); i++) {
+            Alumno a = alumnos_al.get(i);
+            if (a.getIdAlumno().equalsIgnoreCase(id)) {
+                Alumno.cabecera();
+                a.cuerpo();
+
+                String nombre = Metodos.validarEntradaNombre("Ingrese nuevo nombre? ");
+
+                int edad = Metodos.validarEntradaEntero("Ingrese nueva edad? ");
+
+                double estatura = Metodos.validarEntradaReal("Ingrese nueva estatura? ");
+
+                a.setNombre(nombre);
+                a.setEdad(edad);
+                a.setEstatura(estatura);
+                
+                System.out.println("\nAlumno se actualizó");
+            }
+        }
         pause();
     }
 
