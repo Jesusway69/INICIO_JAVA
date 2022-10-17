@@ -4,6 +4,22 @@ import java.util.Scanner;
 
 public class Metodos {
 
+    public static int validarIdAlumno(String mensaje) {
+        Scanner sc = new Scanner(System.in);
+        String patron = "A[0-9]{1,2}";
+        boolean correcto;
+        String n;
+        do {
+            System.out.print(mensaje);
+            n = sc.next();
+            correcto = n.matches(patron);
+            if (!correcto) {
+                System.out.println("Error: Entrada Incorrecta");
+            }
+        } while (!correcto);
+        return n;
+    }
+
     public static int validarEntradaEntero(String mensaje) {
         Scanner sc = new Scanner(System.in);
         String patron = "[0-9]+";

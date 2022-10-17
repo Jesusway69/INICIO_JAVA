@@ -27,6 +27,8 @@ public class Menu {
             System.out.println("3. Eliminar por su id");
             System.out.println("4. Actualizar");
             System.out.println("5. Mostrar todos los alumnos menores de edad");
+            System.out.println("6. Eliminar todos los alumnos");
+            System.out.println("7. Añadir nuevos alumnos");
             System.out.println("0. Salir");
 
             int opcion = Metodos.validarEntradaEntero("Ingrese opción? ");
@@ -43,6 +45,15 @@ public class Menu {
                     break;
                 case 4:
                     actualizar();
+                    break;
+                case 5:
+                    evaluarEdad();
+                    break;
+                case 6:
+                    eliminarTodosAlumnos();
+                    break;
+                case 7:
+                    anadirNuevosAlumnos();
                     break;
                 case 0:
                     System.exit(0);
@@ -127,10 +138,47 @@ public class Menu {
                 a.setNombre(nombre);
                 a.setEdad(edad);
                 a.setEstatura(estatura);
-                
+
                 System.out.println("\nAlumno se actualizó");
             }
         }
+        pause();
+    }
+
+    public static void evaluarEdad() {
+        cls();
+        System.out.println("5. ALUMNOS MENORES DE EDAD");
+        System.out.println("--------------------------");
+        Alumno.cabecera();
+        for (int i = 0; i < alumnos_al.size(); i++) {
+            Alumno a = alumnos_al.get(i);
+            if (a.esMenorEdad()) {
+                a.cuerpo();
+            }
+        }
+
+        pause();
+    }
+
+    public static void eliminarTodosAlumnos() {
+        cls();
+        System.out.println("6. ELIMINAR TODOS LOS ALUMNOS");
+        System.out.println("-----------------------------");
+        alumnos_al.clear();
+        pause();
+    }
+
+    public static void anadirNuevosAlumnos() {
+        cls();
+        System.out.println("7. AÑADIR NUEVOS ALUMNOS");
+        System.out.println("------------------------");
+        String idAlumno = Metodos.validarIdAlumno("Ingrese Id Alumno? ");
+        String nombre = Metodos.validarEntradaNombre("Ingrse nombre? ");
+        int edad = Metodos.validarEntradaEntero("Ingrese edad? ");
+        double estatura = Metodos.validarEntradaReal("Ingrese estatura? ");
+        Alumno a = new Alumno(idAlumno,nombre,edad,estatura);
+        alumnos_al.add(a);
+
         pause();
     }
 

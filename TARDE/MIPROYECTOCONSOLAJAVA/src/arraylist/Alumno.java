@@ -65,7 +65,15 @@ public class Alumno {
     }
 
     public void cuerpo() {
-        System.out.printf("%8s  %-6s  %4d  %8.2f\n", idAlumno,nombre,edad,estatura);
+        System.out.printf("%8s  %-6s  %4d  %8.2f\n", idAlumno, nombre, edad, estatura);
+    }
+
+    public boolean esMenorEdad() {
+        if (edad < 18) {
+            return true;
+        } else {
+            return false;
+        }
     }
 }
 
