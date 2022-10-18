@@ -1,6 +1,8 @@
 package matriz;
 
-import static entrada.Metodos.copiaMatriz;
+import static libreria.Metodos.copiaMatriz;
+
+
 
 public class Matriz4 {
 
