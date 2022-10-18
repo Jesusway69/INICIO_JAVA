@@ -23,11 +23,6 @@ public class Ventana4 extends javax.swing.JFrame {
         txaContenido.setLineWrap(true);
         txaContenido.setWrapStyleWord(true);
         txaContenido.append(cabecera());
-        
-        
-        
-        
-        
     }
     
     public String cabecera() {
