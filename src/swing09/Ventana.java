@@ -1,6 +1,7 @@
 package swing09;
 
 import java.awt.Toolkit;
+import java.io.IOException;
 
 public class Ventana extends javax.swing.JFrame {
 
@@ -33,7 +34,9 @@ public class Ventana extends javax.swing.JFrame {
             for(int c=0; c<14; c++) {
                matriz[f][c] = vector[j++]; 
                System.out.printf("%6d  ",matriz[f][c]);
-               String x = String.format("%6d  ",matriz[f][c]);
+               String x = String.format("%8d",matriz[f][c]);
+
+               //pause();
                txaContenido.append(x);
             }
             System.out.println();
@@ -54,6 +57,14 @@ public class Ventana extends javax.swing.JFrame {
             i++;
         }
         return primo;
+    }
+    
+        public static void pause() {
+        try {
+            System.out.print("\nPresiona una tecla para continuar...");
+            System.in.read();
+        } catch (IOException e) {
+        }
     }
     
 
@@ -89,6 +100,11 @@ public class Ventana extends javax.swing.JFrame {
         });
 
         cmdLimpiar.setText("LIMPIAR");
+        cmdLimpiar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmdLimpiarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -122,6 +138,10 @@ public class Ventana extends javax.swing.JFrame {
     private void cmdMostrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdMostrarActionPerformed
         generarNumerosPrimos();
     }//GEN-LAST:event_cmdMostrarActionPerformed
+
+    private void cmdLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdLimpiarActionPerformed
+        txaContenido.setText("");
+    }//GEN-LAST:event_cmdLimpiarActionPerformed
 
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {

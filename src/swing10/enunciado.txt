@@ -1,0 +1,13 @@
+Dado la siguiente cadena:
+
+blanco-rojo:amarillo.verde_azul
+
+El programa debe identificar los colores: blanco,rojo,amarillo,verde,azul
+
+La cadena estara contenida un JLabel.
+
+Entonces el programa pide que ingrese en JTextField el patron: 
+
+Un botón que hara la separación de las palabras JLabel y lo pondrá en un JList
+
+
