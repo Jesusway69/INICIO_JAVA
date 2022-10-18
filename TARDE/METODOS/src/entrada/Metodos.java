@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class Metodos {
 
-    public static int validarIdAlumno(String mensaje) {
+    public String validarIdAlumno(String mensaje) {
         Scanner sc = new Scanner(System.in);
         String patron = "A[0-9]{1,2}";
         boolean correcto;
@@ -52,14 +52,13 @@ public class Metodos {
         return Double.parseDouble(n);
     }
 
-    public static String validarEntradaNombre(String mensaje) {
+    public String validarEntradaNombre(String mensaje) {
         Scanner sc = new Scanner(System.in);
         String patron = "[a-zA-ZñÑáéíóú]+";
         boolean correcto;
         String n;
-
         do {
-            System.out.println(mensaje);
+            System.out.print(mensaje);
             n = sc.next();
             correcto = n.matches(patron);
             if (!correcto) {

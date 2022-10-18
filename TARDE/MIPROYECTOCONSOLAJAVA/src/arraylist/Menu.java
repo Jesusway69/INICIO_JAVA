@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+import libreria.Metodos;
 
 public class Menu {
 
@@ -89,7 +90,7 @@ public class Menu {
             }
         }
         if (!bandera) {
-            System.out.println("\nAlumno no existe con ese id");
+            System.out.println("\nNo existe Alumno con ese id");
         }
         pause();
     }
@@ -111,7 +112,7 @@ public class Menu {
             }
         }
         if (!bandera) {
-            System.out.println("\nAlumno no existe con ese id");
+            System.out.println("\nNo existe Alumno con ese id");
         }
         pause();
     }
@@ -178,6 +179,8 @@ public class Menu {
         double estatura = Metodos.validarEntradaReal("Ingrese estatura? ");
         Alumno a = new Alumno(idAlumno,nombre,edad,estatura);
         alumnos_al.add(a);
+        
+        System.out.println("Alumno fue ingresado correctamente");
 
         pause();
     }

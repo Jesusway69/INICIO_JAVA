@@ -1,6 +1,6 @@
 package arraylist;
 
-import static entrada.Metodos.validarEntradaNombre;
+import static libreria.Metodos.validarEntradaNombre;
 
 
 public class Probando {

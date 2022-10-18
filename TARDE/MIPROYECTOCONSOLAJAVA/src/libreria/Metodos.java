@@ -1,9 +1,9 @@
-package arraylist;
+package libreria;
 
 import java.util.Scanner;
 
 public class Metodos {
-    
+
     public static String validarIdAlumno(String mensaje) {
         Scanner sc = new Scanner(System.in);
         String patron = "A[0-9]{1,2}";
@@ -57,9 +57,8 @@ public class Metodos {
         String patron = "[a-zA-ZñÑáéíóú]+";
         boolean correcto;
         String n;
-
         do {
-            System.out.println(mensaje);
+            System.out.print(mensaje);
             n = sc.next();
             correcto = n.matches(patron);
             if (!correcto) {
