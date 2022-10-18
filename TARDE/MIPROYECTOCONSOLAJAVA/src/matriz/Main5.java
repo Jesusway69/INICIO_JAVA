@@ -3,8 +3,6 @@ package matriz;
 import static libreria.Metodos.mostrar;
 import static libreria.Metodos.validarEntradaEntero;
 
-
-
 public class Main5 {
     public static void main(String[] args) {
        int nf = validarEntradaEntero("Número de filas? ");
