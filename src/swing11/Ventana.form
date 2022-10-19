@@ -49,7 +49,10 @@
                           <Component id="cmdActualizar" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace max="32767" attributes="0"/>
-                      <Component id="cmdMostrarTodo" min="-2" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Component id="cmdMostrarTodo" max="32767" attributes="0"/>
+                          <Component id="cmdConsultas" max="32767" attributes="0"/>
+                      </Group>
                   </Group>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
@@ -76,6 +79,7 @@
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="cmdAñadir" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="cmdActualizar" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="cmdConsultas" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
@@ -179,6 +183,14 @@
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cmdActualizarActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="cmdConsultas">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="CONSULTAS"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cmdConsultasActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>

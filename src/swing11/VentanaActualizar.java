@@ -44,6 +44,7 @@ public class VentanaActualizar extends javax.swing.JFrame {
         lblNombre = new javax.swing.JLabel();
         lblHorasTrabajadasSemana = new javax.swing.JLabel();
         txtIdObrero = new javax.swing.JTextField();
+        lblIdObrero = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -67,6 +68,7 @@ public class VentanaActualizar extends javax.swing.JFrame {
 
         lblNombre.setBackground(new java.awt.Color(0, 0, 0));
         lblNombre.setForeground(new java.awt.Color(255, 255, 255));
+        lblNombre.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblNombre.setText("NOMBRE");
         lblNombre.setOpaque(true);
 
@@ -75,47 +77,55 @@ public class VentanaActualizar extends javax.swing.JFrame {
         lblHorasTrabajadasSemana.setText("HORAS TRABAJADAS SEMANA");
         lblHorasTrabajadasSemana.setOpaque(true);
 
+        txtIdObrero.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+
+        lblIdObrero.setBackground(new java.awt.Color(0, 0, 0));
+        lblIdObrero.setForeground(new java.awt.Color(255, 255, 255));
+        lblIdObrero.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblIdObrero.setText("ID OBRERO");
+        lblIdObrero.setOpaque(true);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(lblTitulo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(172, 172, 172)
+                .addComponent(cmdActualizar)
+                .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(31, 31, 31)
-                .addComponent(txtIdObrero, javax.swing.GroupLayout.DEFAULT_SIZE, 79, Short.MAX_VALUE)
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txtIdObrero)
+                    .addComponent(lblIdObrero, javax.swing.GroupLayout.DEFAULT_SIZE, 143, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(lblNombre)
-                        .addGap(30, 30, 30)))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(51, 51, 51)
-                        .addComponent(txtHorasTrabajadasSemana, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(101, 101, 101))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(cmdActualizar)
-                            .addComponent(lblHorasTrabajadasSemana))
-                        .addGap(71, 71, 71))))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(txtNombre)
+                    .addComponent(lblNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(21, 21, 21)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(lblHorasTrabajadasSemana, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(txtHorasTrabajadasSemana))
+                .addGap(28, 28, 28))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(lblTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(24, 24, 24)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblNombre)
-                    .addComponent(lblHorasTrabajadasSemana))
+                    .addComponent(lblHorasTrabajadasSemana)
+                    .addComponent(lblIdObrero))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtHorasTrabajadasSemana, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtIdObrero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(36, 36, 36)
+                .addGap(39, 39, 39)
                 .addComponent(cmdActualizar)
-                .addGap(0, 52, Short.MAX_VALUE))
+                .addGap(0, 55, Short.MAX_VALUE))
         );
 
         pack();
@@ -125,7 +135,6 @@ public class VentanaActualizar extends javax.swing.JFrame {
         String idObrero = txtIdObrero.getText();
         String nombre = txtNombre.getText();
         String horasTrabajadaSemana = txtHorasTrabajadasSemana.getText();
-
         for(Obrero o: Ventana.obreros_al) {
             if(o.getIdObrero().equalsIgnoreCase(idObrero)) {
                o.setNombre(nombre);
@@ -133,6 +142,7 @@ public class VentanaActualizar extends javax.swing.JFrame {
             }
         }
         JOptionPane.showMessageDialog(this, "SE ACTUALIZO CORRECTAMENTE", "INFORMACION", JOptionPane.INFORMATION_MESSAGE);
+        this.dispose();
     }//GEN-LAST:event_cmdActualizarActionPerformed
 
     public static void main(String args[]) {
@@ -147,6 +157,7 @@ public class VentanaActualizar extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton cmdActualizar;
     private javax.swing.JLabel lblHorasTrabajadasSemana;
+    private javax.swing.JLabel lblIdObrero;
     private javax.swing.JLabel lblNombre;
     private javax.swing.JLabel lblTitulo;
     private javax.swing.JTextField txtHorasTrabajadasSemana;

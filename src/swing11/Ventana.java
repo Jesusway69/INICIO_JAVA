@@ -34,6 +34,7 @@ public class Ventana extends javax.swing.JFrame {
         obreros_al.add(new Obrero("O2", "Miguel", 40));//1 remove(1)
         obreros_al.add(new Obrero("O3", "Carlos", 89));//2 remove(2)
         obreros_al.add(new Obrero("O4", "María", 60));//3  remove(3)
+        obreros_al.add(new Obrero("O5", "Arturo", 89));//4  remove(4)
     }
 
     public void mostrarTodos() {
@@ -65,6 +66,7 @@ public class Ventana extends javax.swing.JFrame {
         cmdEliminar = new javax.swing.JButton();
         cmdAñadir = new javax.swing.JButton();
         cmdActualizar = new javax.swing.JButton();
+        cmdConsultas = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -124,6 +126,13 @@ public class Ventana extends javax.swing.JFrame {
             }
         });
 
+        cmdConsultas.setText("CONSULTAS");
+        cmdConsultas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmdConsultasActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -150,7 +159,9 @@ public class Ventana extends javax.swing.JFrame {
                             .addComponent(cmdEliminar, javax.swing.GroupLayout.DEFAULT_SIZE, 113, Short.MAX_VALUE)
                             .addComponent(cmdActualizar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(cmdMostrarTodo)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(cmdMostrarTodo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(cmdConsultas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -171,7 +182,8 @@ public class Ventana extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 17, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(cmdAñadir)
-                    .addComponent(cmdActualizar))
+                    .addComponent(cmdActualizar)
+                    .addComponent(cmdConsultas))
                 .addContainerGap())
         );
 
@@ -228,10 +240,20 @@ public class Ventana extends javax.swing.JFrame {
     }//GEN-LAST:event_cmdAñadirActionPerformed
 
     private void cmdActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdActualizarActionPerformed
-        VentanaActualizar v = new VentanaActualizar();
-        v.setVisible(true);
-        
+        String idObrero = txtIdObrero.getText();
+        if (Util.existe(idObrero)) {
+            VentanaActualizar v = new VentanaActualizar();
+            v.setVisible(true);
+        } else {
+            JOptionPane.showMessageDialog(this, "ID DE OBRERO NO EXISTE", "INFORMACION", JOptionPane.INFORMATION_MESSAGE);
+        }
+
     }//GEN-LAST:event_cmdActualizarActionPerformed
+
+    private void cmdConsultasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdConsultasActionPerformed
+        VentanaConsultas v = new VentanaConsultas();
+        v.setVisible(true);
+    }//GEN-LAST:event_cmdConsultasActionPerformed
 
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -245,6 +267,7 @@ public class Ventana extends javax.swing.JFrame {
     private javax.swing.JButton cmdActualizar;
     private javax.swing.JButton cmdAñadir;
     private javax.swing.JButton cmdBuscar;
+    private javax.swing.JButton cmdConsultas;
     private javax.swing.JButton cmdEliminar;
     private javax.swing.JButton cmdMostrarTodo;
     private javax.swing.JScrollPane jScrollPane1;
