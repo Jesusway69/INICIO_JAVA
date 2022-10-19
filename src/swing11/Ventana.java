@@ -15,13 +15,12 @@ public class Ventana extends javax.swing.JFrame {
         personalizar_JFrame();
         cargarArrayList();
     }
-    
+
     /*
     public static List<Obrero> getArrayList() {
         return obreros_al;
     }
-*/
-
+     */
     public void personalizar_JFrame() {
         this.setIconImage(Toolkit.getDefaultToolkit().createImage(Ventana.class.getResource("w2.jpg")));
         this.setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -65,6 +64,7 @@ public class Ventana extends javax.swing.JFrame {
         cmdMostrarTodo = new javax.swing.JButton();
         cmdEliminar = new javax.swing.JButton();
         cmdAñadir = new javax.swing.JButton();
+        cmdActualizar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -117,6 +117,13 @@ public class Ventana extends javax.swing.JFrame {
             }
         });
 
+        cmdActualizar.setText("ACTUALIZAR");
+        cmdActualizar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmdActualizarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -135,11 +142,13 @@ public class Ventana extends javax.swing.JFrame {
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(cmdBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(cmdBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(cmdAñadir, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(28, 28, 28)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(cmdAñadir, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(cmdEliminar, javax.swing.GroupLayout.DEFAULT_SIZE, 113, Short.MAX_VALUE))
+                            .addComponent(cmdEliminar, javax.swing.GroupLayout.DEFAULT_SIZE, 113, Short.MAX_VALUE)
+                            .addComponent(cmdActualizar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(cmdMostrarTodo)))
                 .addContainerGap())
@@ -160,7 +169,9 @@ public class Ventana extends javax.swing.JFrame {
                     .addComponent(cmdBuscar)
                     .addComponent(cmdEliminar))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 17, Short.MAX_VALUE)
-                .addComponent(cmdAñadir)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(cmdAñadir)
+                    .addComponent(cmdActualizar))
                 .addContainerGap())
         );
 
@@ -212,9 +223,15 @@ public class Ventana extends javax.swing.JFrame {
     }//GEN-LAST:event_cmdEliminarActionPerformed
 
     private void cmdAñadirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdAñadirActionPerformed
-       VentanaAnadir v = new VentanaAnadir();
-       v.setVisible(true);
+        VentanaAnadir v = new VentanaAnadir();
+        v.setVisible(true);
     }//GEN-LAST:event_cmdAñadirActionPerformed
+
+    private void cmdActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdActualizarActionPerformed
+        VentanaActualizar v = new VentanaActualizar();
+        v.setVisible(true);
+        
+    }//GEN-LAST:event_cmdActualizarActionPerformed
 
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -225,6 +242,7 @@ public class Ventana extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton cmdActualizar;
     private javax.swing.JButton cmdAñadir;
     private javax.swing.JButton cmdBuscar;
     private javax.swing.JButton cmdEliminar;
@@ -233,6 +251,6 @@ public class Ventana extends javax.swing.JFrame {
     private javax.swing.JLabel lblIdObrero;
     private javax.swing.JLabel lblTitulo;
     private javax.swing.JTextArea txaContenido;
-    private javax.swing.JTextField txtIdObrero;
+    public static javax.swing.JTextField txtIdObrero;
     // End of variables declaration//GEN-END:variables
 }

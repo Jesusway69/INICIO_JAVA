@@ -3,17 +3,32 @@ package swing11;
 import java.awt.Toolkit;
 import javax.swing.JOptionPane;
 
-public class VentanaAnadir extends javax.swing.JFrame {
+public class VentanaActualizar extends javax.swing.JFrame {
 
-    public VentanaAnadir() {
+    public VentanaActualizar() {
         initComponents();
         personalizar_JFrame();
+        inicio();
+    }
+    
+    public void inicio() {
+        for(Obrero o: Ventana.obreros_al) {
+            String idObrero = Ventana.txtIdObrero.getText();
+            if(o.getIdObrero().equalsIgnoreCase(idObrero)){  
+               String nombre = o.getNombre();
+               String horasTrabajadasSemana = o.getCantidadHorasSemana()+"";
+               txtNombre.setText(nombre);
+               txtHorasTrabajadasSemana.setText(horasTrabajadasSemana);
+               txtIdObrero.setText(idObrero);
+               txtIdObrero.setEditable(false);
+            }    
+        }
     }
 
     public void personalizar_JFrame() {
         this.setIconImage(Toolkit.getDefaultToolkit().createImage(Ventana.class.getResource("w2.jpg")));
         this.setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        this.setTitle("AÑADIR");
+        this.setTitle("ACTUALIZAR");
         this.setLocationRelativeTo(null);
         this.setResizable(false);
     }
@@ -23,13 +38,12 @@ public class VentanaAnadir extends javax.swing.JFrame {
     private void initComponents() {
 
         lblTitulo = new javax.swing.JLabel();
-        txtIdObrero = new javax.swing.JTextField();
         txtNombre = new javax.swing.JTextField();
         txtHorasTrabajadasSemana = new javax.swing.JTextField();
-        cmdAnadir = new javax.swing.JButton();
-        lblIdObrero = new javax.swing.JLabel();
+        cmdActualizar = new javax.swing.JButton();
         lblNombre = new javax.swing.JLabel();
         lblHorasTrabajadasSemana = new javax.swing.JLabel();
+        txtIdObrero = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -37,26 +51,19 @@ public class VentanaAnadir extends javax.swing.JFrame {
         lblTitulo.setFont(new java.awt.Font("Lucida Console", 0, 24)); // NOI18N
         lblTitulo.setForeground(new java.awt.Color(255, 255, 255));
         lblTitulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblTitulo.setText("AÑADIR NUEVO OBRERO");
+        lblTitulo.setText("ACTUALIZAR OBRERO");
         lblTitulo.setOpaque(true);
-
-        txtIdObrero.setHorizontalAlignment(javax.swing.JTextField.CENTER);
 
         txtNombre.setHorizontalAlignment(javax.swing.JTextField.CENTER);
 
         txtHorasTrabajadasSemana.setHorizontalAlignment(javax.swing.JTextField.CENTER);
 
-        cmdAnadir.setText("AÑADIR");
-        cmdAnadir.addActionListener(new java.awt.event.ActionListener() {
+        cmdActualizar.setText("ACTUALIZAR");
+        cmdActualizar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cmdAnadirActionPerformed(evt);
+                cmdActualizarActionPerformed(evt);
             }
         });
-
-        lblIdObrero.setBackground(new java.awt.Color(0, 0, 0));
-        lblIdObrero.setForeground(new java.awt.Color(255, 255, 255));
-        lblIdObrero.setText("ID OBRERO");
-        lblIdObrero.setOpaque(true);
 
         lblNombre.setBackground(new java.awt.Color(0, 0, 0));
         lblNombre.setForeground(new java.awt.Color(255, 255, 255));
@@ -73,20 +80,10 @@ public class VentanaAnadir extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(lblTitulo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(176, 176, 176)
-                .addComponent(cmdAnadir)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap(31, Short.MAX_VALUE)
-                        .addComponent(txtIdObrero, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(62, 62, 62))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(23, 23, 23)
-                        .addComponent(lblIdObrero)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addGap(31, 31, 31)
+                .addComponent(txtIdObrero, javax.swing.GroupLayout.DEFAULT_SIZE, 79, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
@@ -98,8 +95,9 @@ public class VentanaAnadir extends javax.swing.JFrame {
                         .addComponent(txtHorasTrabajadasSemana, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(101, 101, 101))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lblHorasTrabajadasSemana)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(cmdActualizar)
+                            .addComponent(lblHorasTrabajadasSemana))
                         .addGap(71, 71, 71))))
         );
         layout.setVerticalGroup(
@@ -108,49 +106,47 @@ public class VentanaAnadir extends javax.swing.JFrame {
                 .addComponent(lblTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(24, 24, 24)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblIdObrero)
                     .addComponent(lblNombre)
                     .addComponent(lblHorasTrabajadasSemana))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtIdObrero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtHorasTrabajadasSemana, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(35, 35, 35)
-                .addComponent(cmdAnadir)
-                .addGap(0, 53, Short.MAX_VALUE))
+                    .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtIdObrero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(36, 36, 36)
+                .addComponent(cmdActualizar)
+                .addGap(0, 52, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void cmdAnadirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdAnadirActionPerformed
+    private void cmdActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdActualizarActionPerformed
         String idObrero = txtIdObrero.getText();
         String nombre = txtNombre.getText();
         String horasTrabajadaSemana = txtHorasTrabajadasSemana.getText();
 
-        Obrero o = new Obrero(idObrero, nombre, Integer.parseInt(horasTrabajadaSemana));
-        if (!Util.existe(idObrero)) {
-            Ventana.obreros_al.add(o);
-            JOptionPane.showMessageDialog(this, "OBRERO FUE AÑADIDO CORRECTAMENTE", "INFORMACION", JOptionPane.INFORMATION_MESSAGE);
-        } else {
-            JOptionPane.showMessageDialog(this, "EL ID YA ESTA EN USO", "INFORMACION", JOptionPane.INFORMATION_MESSAGE);
+        for(Obrero o: Ventana.obreros_al) {
+            if(o.getIdObrero().equalsIgnoreCase(idObrero)) {
+               o.setNombre(nombre);
+               o.setCantidadHorasSemana(Integer.parseInt(horasTrabajadaSemana));
+            }
         }
-    }//GEN-LAST:event_cmdAnadirActionPerformed
+        JOptionPane.showMessageDialog(this, "SE ACTUALIZO CORRECTAMENTE", "INFORMACION", JOptionPane.INFORMATION_MESSAGE);
+    }//GEN-LAST:event_cmdActualizarActionPerformed
 
     public static void main(String args[]) {
 
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new VentanaAnadir().setVisible(true);
+                new VentanaActualizar().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton cmdAnadir;
+    private javax.swing.JButton cmdActualizar;
     private javax.swing.JLabel lblHorasTrabajadasSemana;
-    private javax.swing.JLabel lblIdObrero;
     private javax.swing.JLabel lblNombre;
     private javax.swing.JLabel lblTitulo;
     private javax.swing.JTextField txtHorasTrabajadasSemana;
