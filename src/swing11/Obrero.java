@@ -67,14 +67,14 @@ public class Obrero {
     public static String cabecera() {
         //System.out.printf("%-6s  %14s  %12s  %6s\n", "NOMBRE", "CANTIDAD_HORAS", "HORAS_EXTRAS", "SUELDO");
         //System.out.printf("%-6s  %14s  %12s  %6s\n", "------", "--------------", "------------", "------");
-        String cabecera = String.format("%-6s  %14s  %12s  %6s\n", "NOMBRE", "CANTIDAD_HORAS", "HORAS_EXTRAS", "SUELDO");
-        String subrrayado = String.format("%-6s  %14s  %12s  %6s\n", "------", "--------------", "------------", "------");
+        String cabecera = String.format("%8s  %-6s  %14s  %12s  %6s\n",  "IDOBRERO","NOMBRE", "CANTIDAD_HORAS", "HORAS_EXTRAS", "SUELDO");
+        String subrrayado = String.format("%8s  %-6s  %14s  %12s  %6s\n","--------","------", "--------------", "------------", "------");
         return cabecera+subrrayado;
     }
 
     public String cuerpo() {
         //System.out.printf("%-6s  %14d  %12d  %6.2f\n", nombre, cantidadHorasSemana, getHorasExtras(), getSueldo());
-        String cuerpo = String.format("%-6s  %14d  %12d  %6.2f\n", nombre, cantidadHorasSemana, getHorasExtras(), getSueldo());
+        String cuerpo = String.format("%8s  %-6s  %14d  %12d  %6.2f\n", idObrero, nombre, cantidadHorasSemana, getHorasExtras(), getSueldo());
         return cuerpo;
     }
 

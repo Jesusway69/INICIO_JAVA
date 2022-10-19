@@ -8,13 +8,19 @@ import javax.swing.JOptionPane;
 public class Ventana extends javax.swing.JFrame {
 
     //BASE DE DATOS
-    List<Obrero> obreros_al = new ArrayList<Obrero>();
+    static List<Obrero> obreros_al = new ArrayList<Obrero>();
 
     public Ventana() {
         initComponents();
         personalizar_JFrame();
-        //cargarArrayList();
+        cargarArrayList();
     }
+    
+    /*
+    public static List<Obrero> getArrayList() {
+        return obreros_al;
+    }
+*/
 
     public void personalizar_JFrame() {
         this.setIconImage(Toolkit.getDefaultToolkit().createImage(Ventana.class.getResource("w2.jpg")));
@@ -31,6 +37,21 @@ public class Ventana extends javax.swing.JFrame {
         obreros_al.add(new Obrero("O4", "María", 60));//3  remove(3)
     }
 
+    public void mostrarTodos() {
+        if (obreros_al.size() > 0) {
+            txaContenido.setText("");
+            txtIdObrero.setText("");
+            String cabecera = Obrero.cabecera();
+            txaContenido.append(cabecera);
+            for (Obrero o : obreros_al) {
+                String cuerpo = o.cuerpo();
+                txaContenido.append(cuerpo);
+            }
+        } else {
+            JOptionPane.showMessageDialog(this, "LISTA DE OBREROS VACIA", "INFORMACION", JOptionPane.INFORMATION_MESSAGE);
+        }
+    }
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -43,6 +64,7 @@ public class Ventana extends javax.swing.JFrame {
         cmdBuscar = new javax.swing.JButton();
         cmdMostrarTodo = new javax.swing.JButton();
         cmdEliminar = new javax.swing.JButton();
+        cmdAñadir = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -88,6 +110,13 @@ public class Ventana extends javax.swing.JFrame {
             }
         });
 
+        cmdAñadir.setText("AÑADIR");
+        cmdAñadir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmdAñadirActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -101,16 +130,18 @@ public class Ventana extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
+                        .addGap(132, 132, 132)
+                        .addComponent(lblIdObrero, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(cmdBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(28, 28, 28)
-                        .addComponent(cmdEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(cmdAñadir, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(cmdEliminar, javax.swing.GroupLayout.DEFAULT_SIZE, 113, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(cmdMostrarTodo))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(132, 132, 132)
-                        .addComponent(lblIdObrero, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                        .addComponent(cmdMostrarTodo)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -128,7 +159,9 @@ public class Ventana extends javax.swing.JFrame {
                     .addComponent(cmdMostrarTodo)
                     .addComponent(cmdBuscar)
                     .addComponent(cmdEliminar))
-                .addContainerGap(51, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 17, Short.MAX_VALUE)
+                .addComponent(cmdAñadir)
+                .addContainerGap())
         );
 
         pack();
@@ -155,27 +188,33 @@ public class Ventana extends javax.swing.JFrame {
     }//GEN-LAST:event_cmdBuscarActionPerformed
 
     private void cmdMostrarTodoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdMostrarTodoActionPerformed
-        if (obreros_al.size() > 0) {
-            txaContenido.setText("");
-            txtIdObrero.setText("");
-            String cabecera = Obrero.cabecera();
-            txaContenido.append(cabecera);
-            for (Obrero o : obreros_al) {
-                String cuerpo = o.cuerpo();
-                txaContenido.append(cuerpo);
-            }
-        }else {
-            JOptionPane.showMessageDialog(this, "LISTA DE OBREROS VACIA", "INFORMACION", JOptionPane.INFORMATION_MESSAGE);
-        }
+        mostrarTodos();
     }//GEN-LAST:event_cmdMostrarTodoActionPerformed
 
     private void cmdEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdEliminarActionPerformed
-       
-        
-        
-        
-        
+        txaContenido.setText("");
+        String idObrero = txtIdObrero.getText();
+        boolean existe = false;
+        for (int i = 0; i < obreros_al.size(); i++) { //for each
+            Obrero o = obreros_al.get(i);
+            if (o.getIdObrero().equalsIgnoreCase(idObrero)) {
+                obreros_al.remove(i);
+                existe = true;
+                mostrarTodos();
+                JOptionPane.showMessageDialog(this, "OBRERO FUE ELIMINADO", "INFORMACION", JOptionPane.INFORMATION_MESSAGE);
+            }
+        }
+        if (!existe) {//existe == false
+            JOptionPane.showMessageDialog(this, "ID DE OBRERO NO EXISTE", "INFORMACION", JOptionPane.INFORMATION_MESSAGE);
+        }
+
+
     }//GEN-LAST:event_cmdEliminarActionPerformed
+
+    private void cmdAñadirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdAñadirActionPerformed
+       VentanaAnadir v = new VentanaAnadir();
+       v.setVisible(true);
+    }//GEN-LAST:event_cmdAñadirActionPerformed
 
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -186,6 +225,7 @@ public class Ventana extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton cmdAñadir;
     private javax.swing.JButton cmdBuscar;
     private javax.swing.JButton cmdEliminar;
     private javax.swing.JButton cmdMostrarTodo;
