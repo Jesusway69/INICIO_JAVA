@@ -98,6 +98,10 @@ public class VentanLisParImpar extends javax.swing.JFrame {
                dlmI.addElement(i); 
             }
         }
+
+                
+                
+        dlmI.g
             
             
         

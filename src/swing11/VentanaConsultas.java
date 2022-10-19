@@ -61,8 +61,10 @@ public class VentanaConsultas extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(lblTitulo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 400, Short.MAX_VALUE)
             .addComponent(cboConsultas, javax.swing.GroupLayout.Alignment.TRAILING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 515, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -80,11 +82,13 @@ public class VentanaConsultas extends javax.swing.JFrame {
     private void cboConsultasItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cboConsultasItemStateChanged
         //String consulta = (String)cboConsultas.getSelectedItem();
         txaConsultas.setText("");
+        List<Obrero> obreros_al = null;
         int consulta = cboConsultas.getSelectedIndex();
         switch (consulta) {
-            case 0: break;
+            case 0:
+                break;
             case 1:
-                List<Obrero> obreros_al = Util.getObreroMayorSueldo2();
+                obreros_al = Util.getObreroMayorSueldo2();
                 txaConsultas.append(Obrero.cabecera());
                 for (Obrero o : obreros_al) {
                     txaConsultas.append(o.cuerpo());
@@ -92,10 +96,25 @@ public class VentanaConsultas extends javax.swing.JFrame {
 
                 break;
             case 2:
+                double presupuesto = Util.sumarSueldos();
+                txaConsultas.append(String.format("%18s\n", "PRESUPUESTO SUELDO"));
+                txaConsultas.append(String.format("%18s\n", "------------------"));
+                txaConsultas.append(String.format("%18.2f", presupuesto));
                 break;
             case 3:
+                obreros_al = Util.getObreroMenorHorasTrabajadasSemana();
+                txaConsultas.append(Obrero.cabecera());
+                for (Obrero o : obreros_al) {
+                    txaConsultas.append(o.cuerpo());
+                }
+
                 break;
             case 4:
+                obreros_al = Util.getObreroMayorHorasExtras();
+                txaConsultas.append(Obrero.cabecera());
+                for (Obrero o : obreros_al) {
+                    txaConsultas.append(o.cuerpo());
+                }
                 break;
         }
 
