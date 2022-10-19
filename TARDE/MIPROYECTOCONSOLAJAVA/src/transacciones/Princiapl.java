@@ -19,7 +19,7 @@ public class Princiapl {
 
         // QUE CIUDAD TUBO EL MAYOR MONTO EN VENTAS.
         String[] ciudad = {"Santander","Sevilla","Vigo","Alicante","Valencia","Granada"};
-        double[] c = {0, 0, 0, 0, 0, 0};
+        double[] c = {0,0,0,0, 0, 0};
         for (Transaccion t : transacciones_al) {
             if (t.getCiudad().equalsIgnoreCase("Santander")) {
                 c[0] = c[0] + t.getVentas();
