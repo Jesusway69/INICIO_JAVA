@@ -10,7 +10,7 @@ import java.util.List;
 
 public class MetodosArchivosCsv {
 
-    public List<Coche> leer(String nra) {
+    public static List<Coche> leer(String nra) {
         List<Coche> coches_al = new ArrayList<>();
         String fila = "";
         File f = null;
