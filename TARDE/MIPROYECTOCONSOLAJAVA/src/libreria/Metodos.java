@@ -1,5 +1,6 @@
 package libreria;
 
+import java.io.IOException;
 import java.util.Scanner;
 
 public class Metodos {
@@ -92,6 +93,18 @@ public class Metodos {
             }
             System.out.println();
         }
+    }
+
+    public static void pause() {
+        try {
+            System.out.print("\nPresiona una tecla para continuar...");
+            System.in.read();
+        } catch (IOException e) {
+        }
+    }
+
+    public static void cls() {
+        System.out.print("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
     }
 
 }
