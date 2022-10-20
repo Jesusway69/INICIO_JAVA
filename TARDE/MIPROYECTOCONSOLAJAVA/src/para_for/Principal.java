@@ -59,6 +59,13 @@ public class Principal {
     
     //CARACTERES UNICODE
     public static void ejemplo7() {
+        
+        
        System.out.println("\u2210    \u03C0"); 
     }
+    
+    
 }
+
+
+
