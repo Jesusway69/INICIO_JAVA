@@ -181,7 +181,6 @@ public class Menu {
             }
             if (t.getCategoría().equalsIgnoreCase("Informática")) {
                 c[1] = c[1] + t.getVentas();
-                System.out.println(t.getVentas());
             }
             if (t.getCategoría().equalsIgnoreCase("Audio y televisión")) {
                 c[2] = c[2] + t.getVentas();
