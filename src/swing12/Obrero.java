@@ -1,4 +1,4 @@
-package swing11;
+package swing12;
 
 public class Obrero {
 

@@ -1,0 +1,3 @@
+
+        int[] x = lstPar.getSelectedIndices();
+        String y = dlmP.getElementAt(x[i]);

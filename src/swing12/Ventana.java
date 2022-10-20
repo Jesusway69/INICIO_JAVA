@@ -1,4 +1,4 @@
-package swing11;
+package swing12;
 
 import java.awt.Toolkit;
 import java.util.ArrayList;
@@ -7,8 +7,10 @@ import javax.swing.JOptionPane;
 
 public class Ventana extends javax.swing.JFrame {
 
-    //BASE DE DATOS
-    static List<Obrero> obreros_al = new ArrayList<Obrero>();
+    // BASE DE DATOS
+    static String nra = "data/obreros.csv";
+    static List<Obrero> obreros_al = null;
+    //static List<Obrero> obreros_al = Controlador.leer(nra);
 
     public Ventana() {
         initComponents();
@@ -16,11 +18,6 @@ public class Ventana extends javax.swing.JFrame {
         cargarArrayList();
     }
 
-    /*
-    public static List<Obrero> getArrayList() {
-        return obreros_al;
-    }
-     */
     public void personalizar_JFrame() {
         this.setIconImage(Toolkit.getDefaultToolkit().createImage(Ventana.class.getResource("w2.jpg")));
         this.setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -30,18 +27,7 @@ public class Ventana extends javax.swing.JFrame {
     }
 
     public void cargarArrayList() {
-        obreros_al.add(new Obrero("C01", "Luis", 50));//0   remove(0) i
-        obreros_al.add(new Obrero("C02", "Miguel", 40));//1 remove(1)
-        obreros_al.add(new Obrero("C03", "Carlos", 89));//2 remove(2)
-        obreros_al.add(new Obrero("C04", "María", 60));//3  remove(3)
-        obreros_al.add(new Obrero("C05", "Arturo", 89));//4  remove(4)
-        obreros_al.add(new Obrero("C06", "Ismael", 79));//4  remove(4)
-        obreros_al.add(new Obrero("C07", "Vanessa", 49));//4  remove(4)
-        obreros_al.add(new Obrero("C08", "Melissa", 59));//4  remove(4)
-        obreros_al.add(new Obrero("C09", "Antonio", 70));//4  remove(4)
-        obreros_al.add(new Obrero("C10", "Antonia", 40));//4  remove(4)
-        obreros_al.add(new Obrero("C11", "Carla", 42));//4  remove(4)
-        obreros_al.add(new Obrero("C12", "Isabel", 43));//4  remove(4)
+        obreros_al = Controlador.leer(nra);
     }
 
     public void mostrarTodos() {
@@ -75,6 +61,7 @@ public class Ventana extends javax.swing.JFrame {
         cmdActualizar = new javax.swing.JButton();
         cmdConsultas = new javax.swing.JButton();
         cmdSeleccionar = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -148,6 +135,13 @@ public class Ventana extends javax.swing.JFrame {
             }
         });
 
+        jButton1.setText("ACTUALIZAR CSV");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -172,14 +166,15 @@ public class Ventana extends javax.swing.JFrame {
                 .addGap(28, 28, 28)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(cmdSeleccionar, javax.swing.GroupLayout.DEFAULT_SIZE, 113, Short.MAX_VALUE)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(cmdEliminar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(cmdActualizar, javax.swing.GroupLayout.DEFAULT_SIZE, 113, Short.MAX_VALUE)))
+                    .addComponent(cmdEliminar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(cmdActualizar, javax.swing.GroupLayout.DEFAULT_SIZE, 113, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
+                .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(cmdMostrarTodo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(cmdConsultas, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -202,7 +197,9 @@ public class Ventana extends javax.swing.JFrame {
                     .addComponent(cmdActualizar)
                     .addComponent(cmdConsultas))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
-                .addComponent(cmdSeleccionar)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(cmdSeleccionar)
+                    .addComponent(jButton1))
                 .addGap(30, 30, 30))
         );
 
@@ -260,7 +257,7 @@ public class Ventana extends javax.swing.JFrame {
 
     private void cmdActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdActualizarActionPerformed
         String idObrero = txtIdObrero.getText();
-        if (Util.existe(idObrero)) {
+        if (Controlador.existe(idObrero)) {
             VentanaActualizar v = new VentanaActualizar();
             v.setVisible(true);
         } else {
@@ -279,6 +276,10 @@ public class Ventana extends javax.swing.JFrame {
         v.setVisible(true);
     }//GEN-LAST:event_cmdSeleccionarActionPerformed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        Controlador.escribir(obreros_al);
+    }//GEN-LAST:event_jButton1ActionPerformed
+
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
@@ -295,6 +296,7 @@ public class Ventana extends javax.swing.JFrame {
     private javax.swing.JButton cmdEliminar;
     private javax.swing.JButton cmdMostrarTodo;
     private javax.swing.JButton cmdSeleccionar;
+    private javax.swing.JButton jButton1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblIdObrero;
     private javax.swing.JLabel lblTitulo;

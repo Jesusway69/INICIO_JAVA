@@ -11,6 +11,13 @@
         </file>
     </editor-bookmarks>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group/>
+        <group>
+            <file>file:/C:/Users/RYZEN/Documents/NetBeansProjects/INICIOJAVA/src/swing12/Controlador.java</file>
+            <file>file:/C:/Users/RYZEN/Documents/NetBeansProjects/INICIOJAVA/src/archivoscsv/MetodosArchivoCsv.java</file>
+            <file>file:/C:/Users/RYZEN/Documents/NetBeansProjects/INICIOJAVA/src/javacsv/Principal.java</file>
+            <file>file:/C:/Users/RYZEN/Documents/NetBeansProjects/INICIOJAVA/src/swing12/Obrero.java</file>
+            <file>file:/C:/Users/RYZEN/Documents/NetBeansProjects/INICIOJAVA/src/swing12/Ventana.java</file>
+            <file>file:/C:/Users/RYZEN/Documents/NetBeansProjects/INICIOJAVA/data/obreros.csv</file>
+        </group>
     </open-files>
 </project-private>

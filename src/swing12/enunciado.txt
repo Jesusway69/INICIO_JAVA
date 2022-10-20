@@ -1,0 +1,9 @@
+Simular una tabla obreros que estarán guardados en un ArrayList
+
+El programa pedirá en un JTextFiel el idObrero y mostrará todos
+sus datos y adicionalmente las horas extras y el sueldo en JTextArea en forma de tabla
+
+Además el programa también puede mostrar en el JTextArea todos los obreros consus
+datos y calculculos respectivo de sueldo y horas extras en forma de tabla.
+
+
