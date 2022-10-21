@@ -1,0 +1,7 @@
+IDTRANSACCION;CIUDAD;ZONA;VENTAS;FORMA PAGO;CATEGORIA
+8;Sevilla;Sur;2563.39;Tarjeta;Electrodoméstico
+9;Sevilla;Sur;1258.36;Contado;Informática
+10;Sevilla;Sur;1578.3;Tarjeta;Informática
+11;Sevilla;Sur;953.26;Contado;Audio y televisión
+12;Sevilla;Sur;2359.25;Tarjeta;Audio y televisión
+Total Ventas: 9437.82

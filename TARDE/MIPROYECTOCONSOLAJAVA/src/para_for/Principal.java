@@ -1,9 +1,12 @@
 package para_for;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 public class Principal {
 
     public static void main(String[] args) {
-        ejemplo7();
+        ejemplo8();
     }
 
     //MOSTRAR LA SERIE PAR 0 2 4 6 8 10 USANDO EL FOR
@@ -56,16 +59,27 @@ public class Principal {
         }
 
     }
-    
+
     //CARACTERES UNICODE
     public static void ejemplo7() {
-        
-        
-       System.out.println("\u2210    \u03C0"); 
+
+        System.out.println("\u2210    \u03C0"); //042f
     }
-    
-    
+
+    public static void ejemplo8() {
+        String codes = "0411";
+        int codei = Integer.parseInt(codes, 16);
+        System.out.printf("%6h", codei);
+
+        System.out.println();
+
+        int code = 0x0411;
+        //System.out.println((char)code);
+        for (int i = 0X410, j = 0X0430; i < 0x042F; i++, j++) {
+            System.out.printf("%2C  %5h  %2C  %5h\n", (char) i, i, (char) j, j);
+
+        }
+
+    }
+
 }
-
-
-

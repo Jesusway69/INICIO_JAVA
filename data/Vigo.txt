@@ -1,0 +1,7 @@
+IDTRANSACCION;CIUDAD;ZONA;VENTAS;FORMA PAGO;CATEGORIA
+14;Vigo;Norte;856.5;Tarjeta;Electrodoméstico
+15;Vigo;Norte;420.3;Contado;Informática
+16;Vigo;Norte;2853.0;Tarjeta;Informática
+17;Vigo;Norte;1933.6;Contado;Audio y televisión
+18;Vigo;Norte;1253.25;Tarjeta;Audio y televisión
+Total Ventas: 8575.79

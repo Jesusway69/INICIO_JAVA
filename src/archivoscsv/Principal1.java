@@ -10,7 +10,7 @@ public class Principal1 {
     static List<Transaccion> transacciones_al = MetodosArchivoCsv.leer(nra);
 
     public static void main(String[] args) {
-       steven();
+       mostrarTodasTransacciones();
     }
 
     public static void mostrarTodasTransacciones() {
@@ -19,16 +19,8 @@ public class Principal1 {
         }
     }
 
-    public static List<String> ciudadesDistinas() {
-        TreeSet<String> ciudades_ts = new TreeSet<String>();
-        for (Transaccion t : transacciones_al) {
-            ciudades_ts.add(t.getCiudad());
-        }
-        List<String> ciudades_al = new ArrayList<String>(ciudades_ts);
-        //System.out.println(ciudades_al);
-        return ciudades_al;
-    }
 
+/*
     public static void steven() {
         List<String> ciudadesLimpias_al = ciudadesDistinas();
         List<Double> sumas = new ArrayList<Double>();
@@ -56,6 +48,7 @@ public class Principal1 {
         }
         System.out.println("\n\nLa ciudad con la mayor venta acumulada: " + ciudadesLimpias_al.get(j) + " con " + sumas.get(j));
     }
+*/
 }
 
 

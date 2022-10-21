@@ -1,0 +1,7 @@
+IDTRANSACCION;CIUDAD;ZONA;VENTAS;FORMA PAGO;CATEGORIA
+20;Alicante;Levante;1253.25;Tarjeta;Electrodoméstico
+21;Alicante;Levante;698.65;Contado;Informática
+22;Alicante;Levante;2653.26;Tarjeta;Informática
+23;Alicante;Levante;1588.99;Contado;Audio y televisión
+24;Alicante;Levante;996.65;Tarjeta;Audio y televisión
+Total Ventas: 10406.1
