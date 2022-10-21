@@ -40,3 +40,24 @@ Necesito cadenas de cero a mas letras
 
 
 =================================================
+
+Encriptador.java
+
+Crear una clase que llamaremos "Cripto".
+Implemente para esta clase un método static  que llamara asi:
+
+public static String  monoGene(String cad)
+
+que recibirá una cadena y devolverá  la cadena pero encriptada utilizando
+la técnica llamada "monoalfabetico general" que se explica a continuación.
+
+SUSTITUIR = 'A','B','C','D','E','F','G','H','I','J','K','L','M','N','Ñ','O','P','Q','R','S','T','U','V','W','X','Y','Z'
+POR       = 'Z','C','Q','V','A','J','G','Ñ','W','N','F','B','U','M','R','H','I','O','D','Y','X','T','P','E','S','L','K'
+   
+ 
+HOLA ---> ÑHBZ   Encriptar
+
+ÑHBZ ---> HOLA   Desencriptar
+=======================
+MOSTRAR TODOS LOS NUMEROS PERFECTOS ENTRE EL RANGO [1,100]
+
