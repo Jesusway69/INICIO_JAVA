@@ -34,7 +34,9 @@ Ventana4.java JTextArea multiples líneas
 
 
 =====================================================================
-
+Ventana5.java: JList voy a mostrar una serie natural del 1 al 100
+=====================================================================
+Ventana5.java: JList separar en dos listas distintas los números pares e impares de la serie natural 1 al 100
 
 
 
