@@ -24,24 +24,18 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Component id="lblTitulo" alignment="0" pref="400" max="32767" attributes="0"/>
-          <Group type="102" alignment="1" attributes="0">
-              <EmptySpace max="32767" attributes="0"/>
-              <Component id="cmdSeparar" min="-2" pref="139" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="128" max="-2" attributes="0"/>
-          </Group>
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
-              <Component id="jScrollPane1" min="-2" pref="96" max="-2" attributes="0"/>
-              <EmptySpace max="32767" attributes="0"/>
-              <Component id="jScrollPane4" min="-2" pref="96" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
-          </Group>
-          <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
-              <Group type="102" alignment="1" attributes="0">
-                  <EmptySpace pref="164" max="32767" attributes="0"/>
-                  <Component id="jScrollPane3" min="-2" pref="96" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="140" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                  <Component id="txfElemento" max="32767" attributes="0"/>
+                  <Component id="cmdAnadir" max="32767" attributes="0"/>
+                  <Component id="jScrollPane4" alignment="0" pref="96" max="32767" attributes="0"/>
               </Group>
+              <EmptySpace max="32767" attributes="0"/>
+              <Component id="cmdInvertir" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
+              <Component id="jScrollPane3" min="-2" pref="96" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -49,20 +43,30 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
               <Component id="lblTitulo" min="-2" pref="29" max="-2" attributes="0"/>
-              <EmptySpace pref="186" max="32767" attributes="0"/>
-              <Component id="cmdSeparar" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="1" attributes="0">
-                  <Component id="jScrollPane1" min="-2" max="-2" attributes="0"/>
-                  <Component id="jScrollPane4" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
-          </Group>
-          <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
-              <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace min="-2" pref="57" max="-2" attributes="0"/>
-                  <Component id="jScrollPane3" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="246" max="32767" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" attributes="0">
+                      <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
+                      <Component id="txfElemento" min="-2" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" attributes="0">
+                              <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
+                              <Component id="jScrollPane4" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="1" attributes="0">
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="cmdInvertir" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="59" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <Component id="cmdAnadir" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="0" pref="33" max="32767" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="1" attributes="0">
+                      <EmptySpace max="32767" attributes="0"/>
+                      <Component id="jScrollPane3" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="61" max="-2" attributes="0"/>
+                  </Group>
               </Group>
           </Group>
       </Group>
@@ -81,45 +85,9 @@
           <Color blue="ff" green="ff" red="ff" type="rgb"/>
         </Property>
         <Property name="horizontalAlignment" type="int" value="0"/>
-        <Property name="text" type="java.lang.String" value="SEPARAR SERIE NATURAL JLIST"/>
+        <Property name="text" type="java.lang.String" value="ELEMENTOS DINAMICOS JLIST"/>
         <Property name="opaque" type="boolean" value="true"/>
       </Properties>
-    </Component>
-    <Container class="javax.swing.JScrollPane" name="jScrollPane1">
-      <AuxValues>
-        <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
-      </AuxValues>
-
-      <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
-      <SubComponents>
-        <Component class="javax.swing.JList" name="lstPar">
-          <Properties>
-            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="0" green="0" red="0" type="rgb"/>
-            </Property>
-            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Lucida Console" size="14" style="0"/>
-            </Property>
-            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="ff" green="ff" red="ff" type="rgb"/>
-            </Property>
-            <Property name="model" type="javax.swing.ListModel" editor="org.netbeans.modules.form.editors2.ListModelEditor">
-              <StringArray count="0"/>
-            </Property>
-          </Properties>
-          <AuxValues>
-            <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
-          </AuxValues>
-        </Component>
-      </SubComponents>
-    </Container>
-    <Component class="javax.swing.JButton" name="cmdSeparar">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="SEPARAR"/>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cmdSepararActionPerformed"/>
-      </Events>
     </Component>
     <Container class="javax.swing.JScrollPane" name="jScrollPane3">
       <AuxValues>
@@ -128,7 +96,7 @@
 
       <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
       <SubComponents>
-        <Component class="javax.swing.JList" name="lstSerie">
+        <Component class="javax.swing.JList" name="lstInvertir">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="0" green="0" red="0" type="rgb"/>
@@ -149,6 +117,30 @@
         </Component>
       </SubComponents>
     </Container>
+    <Component class="javax.swing.JTextField" name="txfElemento">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Lucida Console" size="14" style="0"/>
+        </Property>
+        <Property name="horizontalAlignment" type="int" value="0"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="cmdAnadir">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="A&#xd1;ADIR"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cmdAnadirActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="cmdInvertir">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="INVERTIR ---&gt;"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cmdInvertirActionPerformed"/>
+      </Events>
+    </Component>
     <Container class="javax.swing.JScrollPane" name="jScrollPane4">
       <AuxValues>
         <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
@@ -156,7 +148,7 @@
 
       <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
       <SubComponents>
-        <Component class="javax.swing.JList" name="lstImpar">
+        <Component class="javax.swing.JList" name="lstElemento">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="0" green="0" red="0" type="rgb"/>
