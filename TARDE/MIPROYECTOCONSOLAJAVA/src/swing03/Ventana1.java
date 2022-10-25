@@ -106,7 +106,6 @@ public class Ventana1 extends javax.swing.JFrame {
             s = s + elemente + " - ";
         }
         lblSalida.setText(s);
-        
     }//GEN-LAST:event_cmdSeleccionarActionPerformed
 
     public static void main(String args[]) {
