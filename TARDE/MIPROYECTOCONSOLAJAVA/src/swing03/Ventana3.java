@@ -3,7 +3,7 @@ package swing03;
 import javax.swing.DefaultListModel;
 
 public class Ventana3 extends javax.swing.JFrame {
-    
+
     DefaultListModel dlm1 = new DefaultListModel();
     DefaultListModel dlm2 = new DefaultListModel();
 
@@ -11,6 +11,14 @@ public class Ventana3 extends javax.swing.JFrame {
         initComponents();
         lstClubs1.setModel(dlm1);
         lstClubs2.setModel(dlm2);
+        llenar_lstClubs();
+    }
+
+    public void llenar_lstClubs() {
+        String[] club = {"Atletico de Madrid", "Bilbao", "Barcelona", "Sevilla", "Madrid", "Albacete", "Almeria", "Betis", "Celta"};
+        for (int i = 0; i < club.length; i++) {
+            dlm1.addElement(club[i]);
+        }
     }
 
     @SuppressWarnings("unchecked")
@@ -90,11 +98,11 @@ public class Ventana3 extends javax.swing.JFrame {
     private void cmdSeleccionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdSeleccionarActionPerformed
         dlm2.clear();
         String s = "";
-        for(int i=0; i<dlm1.size(); i++) {
-            String x = (String)dlm1.getElementAt(i);
+        for (int i = 0; i < dlm1.size(); i++) {
+            String x = (String) dlm1.getElementAt(i);
             char letra = x.toUpperCase().charAt(0);
-            if(letra == 'A') {
-               dlm2.addElement(x);
+            if (letra == 'A') {
+                dlm2.addElement(x);
             }
         }
     }//GEN-LAST:event_cmdSeleccionarActionPerformed
