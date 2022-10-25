@@ -1,6 +1,8 @@
 package matriz;
 
-import static entrada.Metodos.mostrar;
+import static libreria.Metodos.mostrar;
+
+
 
 public class Matriz2 {
 
