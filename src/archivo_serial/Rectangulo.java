@@ -56,6 +56,7 @@ public class Rectangulo implements Serializable {
 
     public static void cabecera() {
         System.out.printf("%2s  %5s  %5s  %5s  %9s\n", "ID", "LARGO", "ANCHO", "AREA", "PERIMETRO");
+        System.out.printf("%2s  %5s  %5s  %5s  %9s\n", "--", "-----", "-----", "----", "---------");
     }
 
     public void cuerpo() {

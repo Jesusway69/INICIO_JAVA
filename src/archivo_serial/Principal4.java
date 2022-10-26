@@ -3,10 +3,10 @@ package archivo_serial;
 import java.io.File;
 import java.util.List;
 
-public class Principal1 {
+public class Principal4 {
 
     public static void main(String[] args) {
-        String nra = "data/objeto.ser";
+        String nra = "data/alumno.ser";
 
         File f = new File(nra);
 
@@ -18,22 +18,22 @@ public class Principal1 {
             } else {
                 System.out.println("ERROR: CREAR");
             }
-        }else {
+        } else {
             System.out.println("EL ARCHIVO YA ESTA CREADO");
         }
 
         System.out.println("ESCRIBIR OBJETOS ARCHIVO");
 
-        Rectangulo r1 = new Rectangulo("R1", 4, 5);
-        Rectangulo r2 = new Rectangulo("R2", 6, 7);
+        Alumno a1 = new Alumno("A1", "Luis", 23, 1.72);
+        Alumno a2 = new Alumno("A2", "Marcos", 24, 1.73);
 
-        if (MetodoArchivoSerial.escribir(nra, r1)) {
+        if (MetodoArchivoSerial.escribirAlumno(nra, a1)) {
             System.out.println("OK: ESCRIBIR");
         } else {
             System.out.println("ERROR: ESCRIBIR");
         }
 
-        if (MetodoArchivoSerial.escribir(nra, r2)) {
+        if (MetodoArchivoSerial.escribirAlumno(nra, a2)) {
             System.out.println("OK: ESCRIBIR");
         } else {
             System.out.println("ERROR: ESCRIBIR");
@@ -41,11 +41,11 @@ public class Principal1 {
 
         System.out.println("LEER OBJETOS ARCHIVO");
 
-        List<Object> objetos_al = MetodoArchivoSerial.leer(nra);
-        Rectangulo.cabecera();
-        for (Object objeto : objetos_al) {
-            Rectangulo r = (Rectangulo) objeto;
-            r.cuerpo();
+        List<Alumno> alumnos_al = MetodoArchivoSerial.leerAlumno(nra);
+        //ALUMNO
+        Alumno.cabecera();
+        for (Alumno alumno : alumnos_al) {
+            alumno.cuerpo();
         }
     }
 

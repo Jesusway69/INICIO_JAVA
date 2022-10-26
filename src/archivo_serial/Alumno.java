@@ -66,11 +66,12 @@ public class Alumno implements Serializable {
     }
     
     public static void cabecera() {
-        System.out.printf("%2s  %-8s  %4s  %8s  %8s  %-12s\n", "ID", "NOMBRE", "EDAD", "ESTATURA", "EVALUAR EDAD");
+        System.out.printf("%2s  %-8s  %4s  %8s  %-12s\n", "ID", "NOMBRE", "EDAD", "ESTATURA", "EVALUAR EDAD");
+        System.out.printf("%2s  %-8s  %4s  %8s  %-12s\n", "--", "------", "----", "--------", "------------");
     }
 
     public void cuerpo() {
-        System.out.printf("%2s  %-8s  %4d  %8s  %8.2f  %-12s\n",this.id, this.nombre, this.edad, this.estatura, this.evaluarEdad());
+        System.out.printf("%2s  %-8s  %4d  %8.2f  %-12s\n",this.id, this.nombre, this.edad, this.estatura, this.evaluarEdad());
     } 
     
 }

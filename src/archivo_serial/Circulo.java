@@ -2,25 +2,24 @@ package archivo_serial;
 
 import java.io.Serializable;
 
-
 public class Circulo implements Serializable {
-    
-    private double id;
+
+    private String id;
     private double radio;
 
     public Circulo() {
     }
 
-    public Circulo(double id, double radio) {
+    public Circulo(String id, double radio) {
         this.id = id;
         this.radio = radio;
     }
 
-    public double getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(double id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -32,30 +31,25 @@ public class Circulo implements Serializable {
         this.radio = radio;
     }
 
-    @Override
-    public String toString() {
-        return "Circulo{" + "id=" + id + ", radio=" + radio + '}';
-    }
-    
     public double area() {
         return Math.PI * radio * radio;
     }
-    
+
     public double perimetro() {
         return 2 * Math.PI * radio;
     }
-    
+
     public double diametro() {
-        return 2*radio;
+        return 2 * radio;
     }
-    
+
     public static void cabecera() {
-        System.out.printf("%2s  %5s  %5s  %9s  %8s\n", "ID", "RADIO", "AREA", "PERIMETRO", "DIAMETRO");
+        System.out.printf("%2s  %5s  %5s  %9s  %9s\n", "ID", "RADIO", "AREA", "PERIMETRO", "DIAMETRO");
+        System.out.printf("%2s  %5s  %5s  %9s  %9s\n", "--", "-----", "----", "---------", "--------");
     }
 
     public void cuerpo() {
-        System.out.printf("%2s  %5.2f  %5.2f  %9.2f  %8.2f\n", this.id, this.radio, this.area(), this.perimetro(), this.diametro());
-    }    
-    
-    
+        System.out.printf("%2s  %5.2f  %5.2f  %9.2f  %9.2f\n", this.id, this.radio, this.area(), this.perimetro(), this.diametro());
+    }
+
 }

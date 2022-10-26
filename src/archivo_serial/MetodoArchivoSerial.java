@@ -27,7 +27,6 @@ public class MetodoArchivoSerial {
         boolean bandera = true;
         try {
             MiObjectOutputStream moos = new MiObjectOutputStream(new FileOutputStream(nra, true));
-            
             moos.writeUnshared(objeto);
             System.out.println("LLEGO");
             moos.close();
@@ -46,11 +45,43 @@ public class MetodoArchivoSerial {
                 objetos_al.add(objeto);
                 objeto = ois.readObject();
             }
+            ois.close();
         } catch (EOFException e) {
-            System.out.print("LECTURA CORRECTA");
+            System.out.print("LECTURA CORRECTA\n");
         } catch (IOException | ClassNotFoundException e) {
             objetos_al = null;
         }
         return objetos_al;
     }
+
+    public static boolean escribirAlumno(String nra, Alumno alumno) {
+        boolean bandera = true;
+        try {
+            MiObjectOutputStream moos = new MiObjectOutputStream(new FileOutputStream(nra, true));
+            moos.writeUnshared(alumno);
+            moos.close();
+        } catch (Exception e) {
+            bandera = false;
+        }
+        return bandera;
+    }
+    
+    public static List<Alumno> leerAlumno(String nra) {
+        List<Alumno> alumnos_al = new ArrayList<Alumno>();
+        try {
+            ObjectInputStream ois = new ObjectInputStream(new FileInputStream(nra));
+            Alumno alumno = (Alumno)ois.readObject();
+            while (alumno != null) {
+                alumnos_al.add(alumno);
+                alumno = (Alumno)ois.readObject();
+            }
+            ois.close();
+        } catch (EOFException e) {
+            System.out.print("LECTURA CORRECTA\n");
+        } catch (IOException | ClassNotFoundException e) {
+            alumnos_al = null;
+        }
+        return alumnos_al;
+    }
+
 }
