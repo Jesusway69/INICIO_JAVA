@@ -23,11 +23,13 @@ public class MetodoArchivoSerial {
         return bandera;
     }
 
-    public static boolean escribir(String nra, Object objecto) {
+    public static boolean escribir(String nra, Object objeto) {
         boolean bandera = true;
         try {
             MiObjectOutputStream moos = new MiObjectOutputStream(new FileOutputStream(nra, true));
-            moos.writeUnshared(objecto);
+            
+            moos.writeUnshared(objeto);
+            System.out.println("LLEGO");
             moos.close();
         } catch (Exception e) {
             bandera = false;
@@ -38,18 +40,17 @@ public class MetodoArchivoSerial {
     public static List<Object> leer(String nra) {
         List<Object> objetos_al = new ArrayList<Object>();
         try {
-             ObjectInputStream ois = new ObjectInputStream(new FileInputStream(nra));
-             Object objeto = ois.readObject();
-             while(objeto != null) {
+            ObjectInputStream ois = new ObjectInputStream(new FileInputStream(nra));
+            Object objeto = ois.readObject();
+            while (objeto != null) {
                 objetos_al.add(objeto);
                 objeto = ois.readObject();
-             }
+            }
         } catch (EOFException e) {
             System.out.print("LECTURA CORRECTA");
         } catch (IOException | ClassNotFoundException e) {
             objetos_al = null;
         }
-
         return objetos_al;
     }
 }

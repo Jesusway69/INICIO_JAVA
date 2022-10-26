@@ -1,7 +1,9 @@
 package archivo_serial;
 
+import java.io.Serializable;
 
-public class Circulo {
+
+public class Circulo implements Serializable {
     
     private double id;
     private double radio;

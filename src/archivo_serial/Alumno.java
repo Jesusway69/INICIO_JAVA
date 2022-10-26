@@ -1,7 +1,9 @@
 package archivo_serial;
 
+import java.io.Serializable;
 
-public class Alumno {
+
+public class Alumno implements Serializable {
     
     private String id;
     private String nombre;

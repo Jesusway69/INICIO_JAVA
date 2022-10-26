@@ -1,6 +1,8 @@
 package archivo_serial;
 
-public class Rectangulo {
+import java.io.Serializable;
+
+public class Rectangulo implements Serializable {
 
     private String id;
     private double largo;
