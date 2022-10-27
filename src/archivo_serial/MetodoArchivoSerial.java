@@ -65,15 +65,15 @@ public class MetodoArchivoSerial {
         }
         return bandera;
     }
-    
+
     public static List<Alumno> leerAlumno(String nra) {
         List<Alumno> alumnos_al = new ArrayList<Alumno>();
         try {
             ObjectInputStream ois = new ObjectInputStream(new FileInputStream(nra));
-            Alumno alumno = (Alumno)ois.readObject();
+            Alumno alumno = (Alumno) ois.readObject();
             while (alumno != null) {
                 alumnos_al.add(alumno);
-                alumno = (Alumno)ois.readObject();
+                alumno = (Alumno) ois.readObject();
             }
             ois.close();
         } catch (EOFException e) {
