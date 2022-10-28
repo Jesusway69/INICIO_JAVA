@@ -1,8 +1,11 @@
 package archivo_serial_uno_a_muchos;
 
 import java.awt.Toolkit;
+import java.io.File;
+import java.util.ArrayList;
 import java.util.List;
 import javax.swing.DefaultListModel;
+import javax.swing.JOptionPane;
 
 public class VentanaAsignatura extends javax.swing.JFrame {
 
@@ -25,7 +28,7 @@ public class VentanaAsignatura extends javax.swing.JFrame {
     }
 
     public void cargar_cboIdAsignatura() {
-        String nra = "data/idasignaturas.csv";
+        String nra = "src/archivo_serial_uno_a_muchos/idasignaturas.csv";
         List<String> idasignaturas_al = Controlador.leerIdAsignatura(nra);
         for (String s : idasignaturas_al) {
             String[] parte = s.split(";");
@@ -35,14 +38,18 @@ public class VentanaAsignatura extends javax.swing.JFrame {
 
     public void cargar_lstAlumno() {
         dlm.clear();
-         String nra = "data/alumno.ser";
+        String nra = "src/archivo_serial_uno_a_muchos/alumno.ser";
         String idAsignatura = (String) cboIdAsignatura.getSelectedItem();
         List<Alumno> alumnos_al = Controlador.leerAlumno(nra);
         String s = "";
         if (alumnos_al.size() > 0) {
             for (Alumno alumno : alumnos_al) {
                 if (alumno.getIdAsignatura().equalsIgnoreCase(idAsignatura)) {
-                    s = alumno.getIdAlumno() + " - " + alumno.getNombre();
+                    s = alumno.getIdAlumno() + " - "
+                            + alumno.getNombre() + " - "
+                            + alumno.getEdad() + " - "
+                            + alumno.getIdAsignatura() + " - "
+                            + alumno.getNota();
                     dlm.addElement(s);
                 }
             }
@@ -84,11 +91,17 @@ public class VentanaAsignatura extends javax.swing.JFrame {
         jScrollPane1.setViewportView(lstIdAlumno);
 
         cmdGrabar.setText("GRABAR");
+        cmdGrabar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmdGrabarActionPerformed(evt);
+            }
+        });
 
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setText("Lista de Alumnos");
 
         lblDescripcion.setFont(new java.awt.Font("Courier New", 0, 14)); // NOI18N
+        lblDescripcion.setForeground(new java.awt.Color(204, 51, 0));
         lblDescripcion.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblDescripcion.setText("Descripción");
 
@@ -144,6 +157,43 @@ public class VentanaAsignatura extends javax.swing.JFrame {
         lblDescripcion.setText(descripcion);
         cargar_lstAlumno();
     }//GEN-LAST:event_cboIdAsignaturaItemStateChanged
+
+    private void cmdGrabarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdGrabarActionPerformed
+        String idAsignatura = (String) cboIdAsignatura.getSelectedItem();
+        String descripcion = lblDescripcion.getText();
+        List<Alumno> alumnos_al = new ArrayList<Alumno>();
+        for (int i = 0; i < dlm.getSize(); i++) {
+            String a = (String) dlm.getElementAt(i);
+            String[] campo = a.split(" - ");
+            Alumno alumno = new Alumno(campo[0],
+                    campo[1],
+                    Integer.parseInt(campo[2]),
+                    campo[3],
+                    Integer.parseInt(campo[4]));
+
+            alumnos_al.add(alumno);
+            System.out.println(alumno);
+        }
+        Asignatura asignatura = new Asignatura(idAsignatura, descripcion, alumnos_al);
+        System.out.println(asignatura);
+        String nra = "src/archivo_serial_uno_a_muchos/asignatura.ser";
+        File f = new File(nra);
+        if (!f.exists()) {
+            if (Controlador.crear(nra)) {
+                JOptionPane.showMessageDialog(this, "OK CREAR ARCHIVO", "INFORMACION", JOptionPane.INFORMATION_MESSAGE);
+            } else {
+                JOptionPane.showMessageDialog(this, "ERROR CREAR ARCHIVO", "INFORMACION", JOptionPane.INFORMATION_MESSAGE);
+            }
+        } else {
+            JOptionPane.showMessageDialog(this, "ARCHIVO YA EXISTE", "INFORMACION", JOptionPane.INFORMATION_MESSAGE);
+        }
+        if(Controlador.escribirAsignatura(nra, asignatura)) {
+           JOptionPane.showMessageDialog(this, "OK GRABACION", "INFORMACION", JOptionPane.INFORMATION_MESSAGE);
+        }else {
+           JOptionPane.showMessageDialog(this, "ERROR GRABACION", "INFORMACION", JOptionPane.INFORMATION_MESSAGE); 
+        }
+
+    }//GEN-LAST:event_cmdGrabarActionPerformed
 
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {

@@ -1,6 +1,5 @@
 package archivo_serial_uno_a_muchos;
 
-import archivoscsv.Transaccion;
 import java.io.BufferedReader;
 import java.io.EOFException;
 import java.io.File;
@@ -93,15 +92,15 @@ public class Controlador {
         }
         return bandera;
     }
-
+    
     public static List<Alumno> leerAlumno(String nra) {
         List<Alumno> alumnos_al = new ArrayList<Alumno>();
         try {
             ObjectInputStream ois = new ObjectInputStream(new FileInputStream(nra));
-            Alumno alumno = (Alumno)ois.readObject();
-            while (alumno != null) {
+            Alumno alumno = (Alumno) ois.readObject();
+            while (alumno!= null) {
                 alumnos_al.add(alumno);
-                alumno = (Alumno)ois.readObject();
+                alumno = (Alumno) ois.readObject();
             }
             ois.close();
         } catch (EOFException e) {
@@ -110,6 +109,40 @@ public class Controlador {
             alumnos_al = null;
         }
         return alumnos_al;
+    }
+
+    public static boolean escribirAsignatura(String nra, Asignatura asignatura) {
+        boolean bandera = true;
+        try {
+            MiObjectOutputStream moos = new MiObjectOutputStream(new FileOutputStream(nra, true));
+            moos.writeUnshared(asignatura);
+            moos.close();
+        } catch (Exception e) {
+            bandera = false;
+        }
+        return bandera;
+    }
+
+    public static List<Asignatura> leerAsignatura(String nra) {
+        List<Asignatura> asignaturas_al = new ArrayList<Asignatura>();
+        try {
+            ObjectInputStream ois = new ObjectInputStream(new FileInputStream(nra));
+            
+            Asignatura asignatura = (Asignatura)ois.readObject();
+            
+            
+            
+            while (asignatura != null) {
+                asignaturas_al.add(asignatura);
+                asignatura = (Asignatura) ois.readObject();
+            }
+            ois.close();
+        } catch (EOFException e) {
+            System.out.print("LECTURA CORRECTA\n");
+        } catch (IOException | ClassNotFoundException e) {
+            asignaturas_al = null;
+        }
+        return asignaturas_al;
     }
 
     public static List<Object> leer(String nra) {
@@ -132,7 +165,7 @@ public class Controlador {
 
     public static String getDescripcionAsignatura(String idAsignatura) {
         String descripcion = "";
-        List<String> asignaturas_al = leerIdAsignatura("data/idasignaturas.csv");
+        List<String> asignaturas_al = leerIdAsignatura("src/archivo_serial_uno_a_muchos/idasignaturas.csv");
         for (String s : asignaturas_al) {
             String[] parte = s.split(";");
             if (parte[0].equalsIgnoreCase(idAsignatura)) {

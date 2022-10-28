@@ -25,7 +25,7 @@ public class VentanaAlumno extends javax.swing.JFrame {
     }
 
     public void cargar_cboIdAsignatura() {
-        String nra = "data/idasignaturas.csv";
+        String nra = "src/archivo_serial_uno_a_muchos/idasignaturas.csv";
         List<String> idasignaturas_al = Controlador.leerIdAsignatura(nra);
         for (String s : idasignaturas_al) {
             String[] parte = s.split(";");
@@ -214,12 +214,16 @@ public class VentanaAlumno extends javax.swing.JFrame {
     }//GEN-LAST:event_cmdGrabarActionPerformed
 
     private void cmdGrabarArchivoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdGrabarArchivoActionPerformed
-        String nra = "data/alumno.ser";
+        String nra = "src/archivo_serial_uno_a_muchos/alumno.ser";
         File f = new File(nra);
-        if (Controlador.crear(nra)) {
-            JOptionPane.showMessageDialog(this, "OK CREAR ARCHIVO", "INFORMACION", JOptionPane.INFORMATION_MESSAGE);
-        } else {
-            JOptionPane.showMessageDialog(this, "ERROR CREAR ARCHIVO", "INFORMACION", JOptionPane.INFORMATION_MESSAGE);
+        if (!f.exists()) {
+            if (Controlador.crear(nra)) {
+                JOptionPane.showMessageDialog(this, "OK CREAR ARCHIVO", "INFORMACION", JOptionPane.INFORMATION_MESSAGE);
+            } else {
+                JOptionPane.showMessageDialog(this, "ERROR CREAR ARCHIVO", "INFORMACION", JOptionPane.INFORMATION_MESSAGE);
+            }
+        }else {
+            JOptionPane.showMessageDialog(this, "ARCHIVO YA EXISTE", "INFORMACION", JOptionPane.INFORMATION_MESSAGE);
         }
 
         Alumno a = null;

@@ -1,8 +1,9 @@
 package archivo_serial_uno_a_muchos;
 
+import java.io.Serializable;
 import java.util.List;
 
-public class Asignatura {
+public class Asignatura implements Serializable {
 
     private String idAsignatura;
     private String descripcion;
