@@ -1,11 +1,16 @@
 package swing15;
 
+import static archivoscsv.MetodosArchivoCsv.leer;
+import archivoscsv.Transaccion;
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.TreeSet;
 
 public class Controlador {
 
@@ -38,5 +43,30 @@ public class Controlador {
         }
 
         return obreros_al;
+    }
+    
+    public static boolean escribir(String nra, String cadena) {
+        boolean bandera = true;
+        File f;
+        FileWriter fw;
+        BufferedWriter bw;
+        try {
+            f = new File(nra);
+            if (f.exists()) {
+                fw = new FileWriter(f, true); //Abrir para añadir
+                bw = new BufferedWriter(fw);
+                bw.write(cadena + "\n");
+                bw.flush();
+            } else {
+                fw = new FileWriter(f); //Crear y Abrir para escribir
+                bw = new BufferedWriter(fw);
+                bw.write("IDOBRERO;NOMBRE,HOTRAS TRABAJADAS SEMANA" + "\n");
+                bw.flush();
+            }
+
+        } catch (IOException e) {
+            bandera = false;
+        }
+        return bandera;
     }
 }

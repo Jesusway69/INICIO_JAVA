@@ -5,17 +5,16 @@ import java.awt.Toolkit;
 import java.util.List;
 import javax.swing.border.LineBorder;
 import javax.swing.table.DefaultTableModel;
-import swing11.Ventana;
 
-public class Ventana1 extends javax.swing.JFrame {
+public class Ventana3 extends javax.swing.JFrame {
 
-    String[] cabecera = {"ID OBRERO", "NOMBRE", "HORAS"};
+    String[] cabecera = {"ID OBRERO", "NOMBRE", "HORAS", "H. EXTRAS", "SUELDO"};
     String[][] data = {};
     DefaultTableModel dtm = new DefaultTableModel(data, cabecera);
     String nra = "src/swing15/obrero.csv";
     List<Obrero> obreros_al = Controlador.leer(nra);
 
-    public Ventana1() {
+    public Ventana3() {
         initComponents();
         personalizar_JFrame();
         personalizar_JTable();
@@ -24,18 +23,20 @@ public class Ventana1 extends javax.swing.JFrame {
 
     public void cargarDatoTable() {
         int nf = obreros_al.size();
-        String[] datos = {"", "", ""};
+        String[] datos = {"", "", "", "", ""};
         for (int i = 0; i < nf; i++) {
             Obrero obrero = obreros_al.get(i);
             dtm.addRow(datos);
             dtm.setValueAt(obrero.getIdObrero(), i, 0);
             dtm.setValueAt(obrero.getNombre(), i, 1);
             dtm.setValueAt(obrero.getCantidadHorasSemana(), i, 2);
+            dtm.setValueAt(obrero.getHorasExtras(), i, 3);
+            dtm.setValueAt(obrero.getSueldo(), i, 4);
         }
     }
 
     public void personalizar_JFrame() {
-        this.setIconImage(Toolkit.getDefaultToolkit().createImage(Ventana.class.getResource("w2.jpg")));
+        this.setIconImage(Toolkit.getDefaultToolkit().createImage(Ventana3.class.getResource("w2.jpg")));
         this.setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         this.setTitle("GUI");
         this.setLocationRelativeTo(null);
@@ -113,7 +114,7 @@ public class Ventana1 extends javax.swing.JFrame {
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Ventana1().setVisible(true);
+                new Ventana3().setVisible(true);
             }
         });
     }
