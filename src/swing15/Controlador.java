@@ -10,6 +10,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 import java.util.TreeSet;
 
 public class Controlador {
@@ -44,7 +45,7 @@ public class Controlador {
 
         return obreros_al;
     }
-    
+
     public static boolean escribir(String nra, String cadena) {
         boolean bandera = true;
         File f;
@@ -68,5 +69,23 @@ public class Controlador {
             bandera = false;
         }
         return bandera;
+    }
+
+    public static boolean correctoHorasTrabajadasSemana(String horasTrabajadasSemana) {
+        String patron = "[0-9]+";
+        boolean correcto = horasTrabajadasSemana.matches(patron);
+        return correcto;
+    }
+
+    public static boolean correctoNombre(String nombre) {
+        String patron = "[a-zA-ZñÑáéíóú]+";
+        boolean correcto = nombre.matches(patron);
+        return correcto;
+    }
+
+    public static boolean correctoIdObrero(String idObrero) {
+        String patron = "C[0-9]{2,2}";
+        boolean correcto = idObrero.matches(patron);
+        return correcto;
     }
 }
