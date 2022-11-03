@@ -15,6 +15,10 @@ public class Cliente {
         this.domicilio = domicilio;
     }
 
+    public Cliente(int codigo) {
+        this.codigo = codigo;
+    }
+ 
     public int getCodigo() {
         return codigo;
     }
@@ -42,6 +46,15 @@ public class Cliente {
     @Override
     public String toString() {
         return "Cliente{" + "codigo=" + codigo + ", nombre=" + nombre + ", domicilio=" + domicilio + '}';
+    }
+    
+    public static void cabecera() {
+        System.out.printf("%6s  %-13s  %-15s\n","CODIGO","NOMBRE","DOMICILIO");
+        System.out.printf("%6s  %-13s  %-15s\n","------","------","---------");
+    }
+    
+    public void cuerpo() {
+        System.out.printf("%6d  %-13s  %-15s\n",codigo,nombre,domicilio);
     }
 
 }

@@ -18,7 +18,7 @@ public class Controlador {
         Connection conexion = null;
         String url     = "jdbc:mysql://127.0.0.1:3306/tiendarabanal";//PROTOCOLO-IP-PUERTO-BASE DE DATOS
         String usuario = "root";
-        String clave   = "1234567";
+        String clave   = "12345678";
         try {
             conexion = DriverManager.getConnection(url,usuario,clave);
         }catch(SQLException e) {
