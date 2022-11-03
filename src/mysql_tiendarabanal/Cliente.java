@@ -18,7 +18,13 @@ public class Cliente {
     public Cliente(int codigo) {
         this.codigo = codigo;
     }
- 
+
+    public Cliente(String nombre, String domicilio) {
+        this.nombre = nombre;
+        this.domicilio = domicilio;
+    }
+    
+
     public int getCodigo() {
         return codigo;
     }

@@ -113,4 +113,41 @@ public class OperacionesCrud implements Operaciones {
         return precioMaximo;
     }
 
+    @Override
+    public List<Integer> obtenerArrayListCodigoCliente() {
+        List<Integer> codigos_al = new ArrayList<Integer>();
+        String query = "SELECT codigo FROM Cliente";
+        try {
+            PreparedStatement ps = conexion.prepareStatement(query);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                int codigo = rs.getInt("codigo");
+                codigos_al.add(codigo);
+            }
+        } catch (Exception e) {
+            codigos_al = null;
+        }
+        return codigos_al;
+    }
+
+    @Override
+    public Cliente buscarCliente(int idCliente) {
+        Cliente cliente = null;
+        String querey = "SELECT * FROM Cliente WHERE codigo = ?";
+        try {
+            PreparedStatement ps = conexion.prepareStatement(querey);
+            ps.setInt(1, idCliente);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                int codigo = rs.getInt(1);
+                String nombre = rs.getString(2);
+                String domicilio = rs.getString(3);
+                cliente = new Cliente(codigo, nombre, domicilio);
+            }
+        } catch (Exception e) {
+            cliente = null;
+        }
+        return cliente;
+    }
+
 }
