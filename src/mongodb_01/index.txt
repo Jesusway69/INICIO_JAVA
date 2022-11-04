@@ -1,1 +1,2 @@
-Principal1.java : Conexion
+Principal1.java : Conexion, insertar
+Principal2.java : Mostrar lo que hemos insertado

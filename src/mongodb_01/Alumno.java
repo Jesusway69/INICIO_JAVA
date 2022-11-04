@@ -23,6 +23,13 @@ public class Alumno {
         this.estatura = estatura;
     }
 
+    public Alumno(String idAlumno, String nombre) {
+        this.idAlumno = idAlumno;
+        this.nombre = nombre;
+    }
+    
+    
+
     public String getIdAlumno() {
         return idAlumno;
     }

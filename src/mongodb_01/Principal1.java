@@ -25,8 +25,9 @@ public class Principal1 {
         AlumnoExtendido alumnoe = new AlumnoExtendido("A5","Sylvia",22,1.69,"Marconi 123");
         
         insertarDocumentoAlumno(alumno);
-*/
-        insertarDocumentoAlumno_3("E1","Jaime");
+         */
+        //insertarDocumentoAlumno_3("E1", "Jaime");
+        insertarDocumentoAlumno_4();
         System.out.println("OK");
 
     }
@@ -47,7 +48,7 @@ public class Principal1 {
                 .append("direccion", direccion);
         coleccion.insertOne(documento);
     }
-    
+
     public static void insertarDocumentoAlumno_2(AlumnoExtendido alumno) {
         Document documento = new Document("idAlumno", alumno.getIdAlumno())
                 .append("nombre", alumno.getNombre())
@@ -56,10 +57,18 @@ public class Principal1 {
                 .append("direccion", alumno.getDireccion());
         coleccion.insertOne(documento);
     }
-    
+
     public static void insertarDocumentoAlumno_3(String idEmpleado, String nombre) {
         Document documento = new Document("idEmpleado", idEmpleado)
                 .append("nombre", nombre);
+        coleccion.insertOne(documento);
+    }
+
+    public static void insertarDocumentoAlumno_4() {
+        Document documento = new Document("idAlumno", "A6")
+                .append("nombre", 123)
+                .append("edad", 23)
+                .append("estatura", 1.70);
         coleccion.insertOne(documento);
     }
 
