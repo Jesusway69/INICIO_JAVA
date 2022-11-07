@@ -38,7 +38,7 @@ public class Entrada {
 
     public static String entradaNombre(String mensaje) {
         Scanner sc = new Scanner(System.in, "ISO-8859-1");//UTF-8);
-        String er = "[a-zA-Z\u00F1\u00D1]+";//ñÑ
+        String er = "[a-zA-ZñÑáéíóú]+";//ñÑ
         String sCadena;
         boolean correcto;
         do {
