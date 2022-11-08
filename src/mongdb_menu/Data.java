@@ -25,9 +25,11 @@ public class Data {
         empleados_al.add(new Empleado(14, "Micaela", 42, 1300, new Direccion("Ejercito", 434, "Oviedo"), "657224128", Arrays.asList("Gamer", "Cine", "Farandula")));
         empleados_al.add(new Empleado(15, "Rosa", 23, 1000, new Direccion("Marconi", 298, "Bilbao"), "659234121", Arrays.asList("Pasear", "Lectura")));
         empleados_al.add(new Empleado(16, "María", 22, 1200, new Direccion("Union", 392, "Pamplona"), "657274127", Arrays.asList("Documentales", "Geopolítica")));
+        empleados_al.add(new Empleado(17, "María", 21, 1100, new Direccion("Orbegozo", 192, "Pamplona"), "657274432", Arrays.asList("Documentales")));
         empleados_al.add(new Empleado(18, "Javier", 35, 1100, new Direccion("Independencia", 248, "Zaragoza"), "657264126", Arrays.asList("Bailar", "Pasear")));
         empleados_al.add(new Empleado(19, "Arturo", 45, 1400, new Direccion("Gamarra", 189, "Burgos"), "657284128", Arrays.asList("Película", "Geopolítica")));
         empleados_al.add(new Empleado(20, "Lucía", 34, 1200, new Direccion("Orbegozo", 291, "Salamanca"), "657734127", Arrays.asList("Leer", "Documentales", "Geopolítica")));
+        empleados_al.add(new Empleado(21, "Lucía", 34, 1200, new Direccion("Orbegozo", 291, "Salamanca"), "657734127", Arrays.asList("Leer", "Documentales", "Geopolítica")));
 
         return empleados_al;
     }
