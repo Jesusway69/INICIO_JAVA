@@ -134,6 +134,11 @@ public class Menu {
                     opcion15();
                     MiMenu.pause();
                     break;
+                case 16:
+                    MiMenu.cls();
+                    opcion16();
+                    MiMenu.pause();
+                    break;
                 case 0:
                     System.exit(0);
             }
@@ -442,6 +447,24 @@ public class Menu {
                 Filters.ne("nombre", "Jose")
         );
 
+        FindIterable<Document> iterable = coleccion.find(bson);
+        for (Document doc : iterable) {
+            System.out.println(doc.toJson());
+        }
+    }
+
+    public static void opcion16() {
+        System.out.println("16. Mostrar los empleados cuyo idEmpleado esten en los rangos siguientes  [..3]  [10,13]  [19..]");
+        System.out.println("------------------------------------------------------------------------------------------------");
+        Bson bson = Filters.or(
+                Filters.gte("idEmpleado", 19),
+                Filters.lte("idEmpleado", 3),
+                Filters.and(
+                             Filters.gte("idEmpleado",10),
+                             Filters.lte("idEmpleado",13)
+                )
+        );
+        // x <= 3     10<= x <=13   x>=19
         FindIterable<Document> iterable = coleccion.find(bson);
         for (Document doc : iterable) {
             System.out.println(doc.toJson());
