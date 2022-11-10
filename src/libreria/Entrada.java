@@ -51,10 +51,26 @@ public class Entrada {
         } while (!correcto);
         return sCadena;
     }
-    
+
     public static String entradaNombreYApellido(String mensaje) {
         Scanner sc = new Scanner(System.in, "ISO-8859-1");//UTF-8);
         String er = "[a-zA-ZñÑáéíóú\\s]+";//ñÑ
+        String sCadena;
+        boolean correcto;
+        do {
+            System.out.print(mensaje);
+            sCadena = sc.nextLine();
+            correcto = sCadena.matches(er);
+            if (!correcto) {
+                System.out.println("Error vuelva a ingresar el dato");
+            }
+        } while (!correcto);
+        return sCadena;
+    }
+
+    public static String entradaDomicilio(String mensaje) {
+        Scanner sc = new Scanner(System.in, "ISO-8859-1");//UTF-8);
+        String er = "[0-9a-zA-ZñÑáéíóú\\s]+";//ñÑ
         String sCadena;
         boolean correcto;
         do {

@@ -1,5 +1,7 @@
 package object;
 
+import java.io.FileOutputStream;
+import java.io.PrintStream;
 import java.sql.Connection;
 import java.util.Collection;
 import java.util.Iterator;
@@ -19,13 +21,20 @@ public class Menu {
         ConexionMysql c = new ConexionMysql("tiendarabanal");
         conexion = ConexionMysql.getConexion();
         crud = new OperacionesCrud(conexion);
+        opcion1();
 
         do {
+            cls();
             System.out.println("MENU");
             System.out.println("----");
-            System.out.println("1. Recuperar los objetos de la tabla cliente y ponerlos en un hashmap");
+            System.out.println("1. Restaurar original los objetos de la tabla cliente y ponerlos en un hashmap");
             System.out.println("2. Eliminar un cliente por la clave del hashmap");
             System.out.println("3. Actualizar un cliente del hashmap pero solo el nombre");
+            System.out.println("4. Añadir un cliente en el hashmap");
+            System.out.println("5. Mostrar todos los clientes en el hashmap");
+            System.out.println("6. Actualizar la tabla cliente de la base de datos"); //PENDIENTE
+            System.out.println("7. Crear un archivo html con los datos del cliente");
+
             System.out.println("0. Salir");
 
             int opcion = entradaNumeroEntero("Ingrese opcion? ");
@@ -44,6 +53,27 @@ public class Menu {
                 case 3:
                     cls();
                     opcion3();
+                    pause();
+                    break;
+                case 4:
+                    cls();
+                    opcion4();
+                    pause();
+                    break;
+                case 5:
+                    cls();
+                    opcion5();
+                    pause();
+                    break;
+                case 6:
+                    cls();
+                    //opcion6();
+                    pause();
+                    break;
+
+                case 7:
+                    cls();
+                    opcion7();
                     pause();
                     break;
                 case 0:
@@ -95,6 +125,64 @@ public class Menu {
         } else {
             System.out.println("ERROR: CLAVE NO EXISTE");
         }
+    }
+
+    public static void opcion4() {
+        System.out.println("4. Añadir un cliente en el hashmap");
+        System.out.println("----------------------------------");
+        int codigo = entradaNumeroEntero("Ingrese clave del cliente? ");
+        if (clientes_hm.containsKey(codigo)) {
+            System.out.println("ERROR: CLAVE YA EXISTE");
+        } else {
+            String nombre = entradaNombreYApellido("Ingrese nombre y apellido? ");
+            String domicilio = entradaDomicilio("Ingrese domicilio? ");
+            Cliente cliente = new Cliente(codigo, nombre, domicilio);
+            clientes_hm.put(codigo, cliente);
+            mostrarClientes_1();
+
+        }
+    }
+
+    public static void opcion5() {
+        System.out.println("5. Mostrar todos los clientes en el hashmap");
+        System.out.println("-------------------------------------------");
+
+        mostrarClientes_1();
+
+    }
+
+    public static void opcion7() {
+        System.out.println("7. Crear un archivo html con los datos del cliente");
+        System.out.println("--------------------------------------------------");
+        FileOutputStream fos;
+        PrintStream ps;
+        try {
+            fos = new FileOutputStream("data/cliente.html");
+            ps = new PrintStream(fos);
+            ps.println("<html><head><title>Cliente</title></head><body><center>DATOS DEL CLIENTE</center>");
+            ps.println("<table border='1'>");
+            ps.println("<thead><tr><th>CODIGO</th><th>NOMBRE</th><th>DOMICILIO</th></tr></thead>");
+            ps.println("<tbody>");
+            
+            
+            Collection<Cliente> clientes_c = clientes_hm.values();
+
+            for (Cliente c : clientes_c) {
+               
+               ps.println("<tr><td>" + c.getCodigo() + "</td><td>" + c.getNombre() + "</td><td>" + c.getDomicilio() + "</td></tr>");
+
+                
+            }
+
+     
+            ps.println("</tbody></table>");
+            ps.println("</body></html>");
+            ps.close();
+
+        } catch (Exception e) {
+            System.out.println("ERROR: ESCRIBIR ARCHIVO HTML");
+        }
+
     }
 
     public static void mostrarClientes_1() {
