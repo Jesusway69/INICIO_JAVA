@@ -3,6 +3,7 @@ package object;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -32,4 +33,7 @@ public class OperacionesCrud {
         }
         return clientes_hm;
     }
+
+
+
 }

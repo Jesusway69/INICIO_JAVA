@@ -1,8 +1,12 @@
 package object;
 
+import java.io.BufferedReader;
 import java.io.FileOutputStream;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.io.PrintStream;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.util.Collection;
 import java.util.Iterator;
 import java.util.Map;
@@ -34,6 +38,7 @@ public class Menu {
             System.out.println("5. Mostrar todos los clientes en el hashmap");
             System.out.println("6. Actualizar la tabla cliente de la base de datos"); //PENDIENTE
             System.out.println("7. Crear un archivo html con los datos del cliente");
+            System.out.println("8. Mostrar en el navegador el archivo html creado en la pregunta 7");
 
             System.out.println("0. Salir");
 
@@ -67,13 +72,18 @@ public class Menu {
                     break;
                 case 6:
                     cls();
-                    //opcion6();
+                    opcion6();
                     pause();
                     break;
 
                 case 7:
                     cls();
                     opcion7();
+                    pause();
+                    break;
+                case 8:
+                    cls();
+                    opcion8();
                     pause();
                     break;
                 case 0:
@@ -151,6 +161,44 @@ public class Menu {
 
     }
 
+    public static void opcion6() {
+        System.out.println("6. Actualizar la tabla cliente de la base de datos");
+        System.out.println("--------------------------------------------------");
+
+        String query1 = "TRUNCATE TABLE Cliente";
+        String query2 = "INSERT INTO Cliente(codigo,nombre,domicilio) VALUES(?,?,?)";
+        PreparedStatement ps = null;
+
+        if (conexion != null) {
+
+            try {
+                ps = conexion.prepareStatement(query1);
+                ps.executeUpdate();
+                System.out.println("OK: QUERY1");
+
+                Collection coleccion = clientes_hm.values();
+
+                for (Object o : coleccion) {
+                    Cliente c = (Cliente)o;
+                    
+                    ps = conexion.prepareStatement(query2);
+                    ps.setInt(1, c.getCodigo());
+                    ps.setString(2, c.getNombre());
+                    ps.setString(3, c.getDomicilio());
+                    ps.executeUpdate();
+                    System.out.println("OK: QUERY2");
+                }
+  
+            } catch (Exception e) {
+                System.out.println("ERROR: QUERY");
+            }
+
+        } else {
+            System.out.println("ERROR: CONEXION");
+        }
+
+    }
+
     public static void opcion7() {
         System.out.println("7. Crear un archivo html con los datos del cliente");
         System.out.println("--------------------------------------------------");
@@ -163,24 +211,36 @@ public class Menu {
             ps.println("<table border='1'>");
             ps.println("<thead><tr><th>CODIGO</th><th>NOMBRE</th><th>DOMICILIO</th></tr></thead>");
             ps.println("<tbody>");
-            
-            
+
             Collection<Cliente> clientes_c = clientes_hm.values();
 
             for (Cliente c : clientes_c) {
-               
-               ps.println("<tr><td>" + c.getCodigo() + "</td><td>" + c.getNombre() + "</td><td>" + c.getDomicilio() + "</td></tr>");
 
-                
+                ps.println("<tr><td>" + c.getCodigo() + "</td><td>" + c.getNombre() + "</td><td>" + c.getDomicilio() + "</td></tr>");
+
             }
 
-     
             ps.println("</tbody></table>");
             ps.println("</body></html>");
             ps.close();
 
         } catch (Exception e) {
             System.out.println("ERROR: ESCRIBIR ARCHIVO HTML");
+        }
+
+    }
+
+    public static void opcion8() {
+        System.out.println("8. Mostrar en el navegador el archivo html creado en la pregunta 7");
+        System.out.println("------------------------------------------------------------------");
+
+        try {
+            Process p = Runtime.getRuntime().exec("C:/Windows/System32/cmd.exe " + "/K" + " start " + "data/cliente.html");
+            InputStream ip = p.getInputStream();
+            InputStreamReader isr = new InputStreamReader(ip);
+            BufferedReader br = new BufferedReader(isr);
+        } catch (Exception e) {
+            System.out.println("ERROR: LEVANTAR PAGINA HTML");
         }
 
     }
